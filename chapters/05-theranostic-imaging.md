@@ -1,136 +1,140 @@
-# Theranostic Imaging
+# Chapter 5 — Theranostic Imaging
+*When imaging and therapy become the same act — and what it means to select a patient lesion by lesion rather than diagnosis by diagnosis.*
 
-## Learning Objectives
+The PSMA PET scan maps the patient's disease across his entire skeleton and lymphatic system in a single acquisition. Most of his bone metastases glow. Most of his lymph node lesions glow. The radiologist's report notes intense PSMA expression at all but one site.
 
-After working through this chapter you should be able to:
+The one exception is a 2-centimeter mass in the liver, visible on the staging CT as clearly as the others. On the CT it looks like any other metastasis. On the PSMA PET it is nearly dark.
 
-- **Explain** how a theranostic agent uses the *same* molecular targeting event for both imaging and therapy, and why that coupling changes the logic of patient selection.
-- **Distinguish** the physical signal, resolution, and biological question answered by a diagnostic PET scan versus a therapeutic radioligand, even when the two share a targeting molecule.
-- **Compare** beta-emitter and alpha-emitter radioisotopes in terms of particle energy, range, linear energy transfer, and the clinical situations each suits.
-- **Evaluate** a patient-selection decision using a PSMA PET scan, including the thresholds and uncertainties that make "PSMA-positive" a contestable category.
-- **Critique** the claim that target expression on a scan guarantees therapeutic response.
+This discordance is not a technical error and not an ambiguity in the reporting. It is biological information about a specific lesion: this tumor cell population does not express significant PSMA. And it is information that matters, because the therapy the team is considering — lutetium-177-PSMA-617 — works by attaching a radioactive isotope to a molecule that binds PSMA. The drug finds its targets the same way the scan did. Where the scan lit up, the drug will go. Where the scan was dark, the drug will not.
 
-## Opening Case
-
-A 71-year-old man has metastatic castration-resistant prostate cancer. He has already progressed through androgen-receptor pathway inhibition and taxane chemotherapy. His oncologist wants to offer him lutetium-177-PSMA-617 (Pluvicto), a radioligand therapy approved by the FDA in 2022. But first the patient gets a gallium-68-PSMA-11 PET scan.
-
-The scan lights up brightly at most of his bone and lymph-node metastases. But one liver lesion, clearly visible on his recent CT, shows almost no PSMA signal. The tumor board pauses. Here is the problem in miniature: the therapy will be delivered *only* to cells that express PSMA, because the drug finds its targets the same way the scan did. The CT sees a 2-centimeter mass. The PSMA PET sees whether that mass will take up the drug. These are two different measurements of the same lump, and they disagree.
-
-If the team treats based on the CT — "there's cancer, treat the cancer" — they may irradiate the PSMA-positive sites while the PSMA-negative liver lesion grows unchecked. If they treat based on the PET — "treat what the scan can reach" — they accept that one visible tumor will get no therapeutic dose at all. The scan has not just diagnosed disease. It has predicted, lesion by lesion, where the drug will and will not go. The decision the board faces only exists because imaging and therapy are now the same act.
-
-## Core Concepts
-
-### What "theranostic" actually means
-
-Conventional cancer care keeps diagnosis and treatment in separate boxes. You image the tumor with one tool, then treat it with an unrelated drug. Information flows one direction: the scan informs the treatment choice, but the treatment never feeds back through the scan.
-
-A **theranostic agent** ("therapy" + "diagnostic") collapses that separation. The molecule used to *image* the target is the same molecule — or a near-identical sister molecule — used to *deliver therapy* to that target. The single molecular event of target binding drives both the diagnostic signal and the therapeutic payload [NCI, Theranostics and AI in Cancer Precision Medicine].
-
-The cleanest examples are **radioligand theranostics**, and the cleanest of those is PSMA-targeted therapy for prostate cancer.
-
-### The PSMA story, step by step
-
-**Prostate-specific membrane antigen (PSMA)** is a protein that sits in the outer membrane of prostate cancer cells, expressed at high levels on nearly all metastatic prostate cancer and rising with disease aggressiveness [verify]. Crucially, a small molecule can be designed to lock into PSMA's active site. That small molecule is the targeting ligand. What you attach to it decides whether it images or treats.
-
-- Attach a **PET-emitting isotope** — gallium-68 (as gallium-68-PSMA-11, marketed as Locametz/Illuccix) or fluorine-18 (as fluorine-18-DCFPyL/piflufolastat, marketed as Pylarify) — and the ligand becomes a **diagnostic**. The isotope emits positrons; the PET scanner detects the resulting annihilation photons and maps where PSMA is expressed across the whole body [NCI, CT Scans and Cancer Fact Sheet].
-- Attach a **therapeutic isotope** — lutetium-177 (as lutetium-177-PSMA-617, Pluvicto) — and the *same ligand* becomes a **therapy**. Lutetium-177 emits beta particles that deposit ionizing radiation into the cells the ligand binds [verify].
-
-So the workflow is: **image to find the target, treat through the same target, image again to confirm delivery and response.** The pivotal VISION trial showed improved overall survival from lutetium-177-PSMA-617 plus standard care versus standard care alone in heavily pretreated patients [verify], and that result drove the 2022 approval.
-
-<!-- → [DIAGRAM: theranostic image-then-treat loop — PSMA ligand core, with gallium-68/fluorine-18 swapped in for PET imaging and lutetium-177 swapped in for therapy; arrows showing image → select → treat → re-image] -->
-
-### Scale and signal: what each step measures
-
-This is the through-line of the whole book. Each step in the theranostic loop is a *different measurement at a different scale*.
-
-- **The diagnostic PET scan.** Physical signal: positron annihilation photons (511 keV each, emitted back-to-back). Resolution: roughly 4–6 mm in clinical PET — coarse by microscope standards, but whole-body. Biological question: *which lesions, anywhere in the body, express enough PSMA to be reached?* It answers a yes/no-per-lesion question across an entire person.
-- **The therapy.** Physical signal: none you read out directly — the beta particles do their work over a few millimeters of tissue. Biological question: *can a lethal radiation dose be delivered to the targeted cells?* The same binding event that gave you a bright PET voxel now delivers a dose.
-
-The PET scan is the proxy. The therapy is the thing. The entire theranostic premise is that the proxy predicts the thing — that a bright scan means a treatable lesion. The opening case is exactly where that premise gets tested.
-
-### Beta versus alpha emitters
-
-The therapeutic isotope choice reshapes the whole risk-benefit profile.
-
-**Beta-emitters** release electrons of intermediate energy that travel **millimeters** through tissue. Lutetium-177 is the dominant clinical example; yttrium-90 (higher energy, longer range) and iodine-131 (the classic thyroid-cancer agent) are others. The millimeter range is a feature: a labeled cell irradiates its neighbors too, so **crossfire** can kill nearby tumor cells that don't themselves express the target — helpful when expression is patchy. The cost: lower **linear energy transfer (LET)** — the energy deposited per unit path — means each particle does less lethal DNA damage, and the longer range can spill dose into adjacent normal tissue.
-
-**Alpha-emitters** release helium nuclei (2 protons + 2 neutrons) of very high energy but very short range — **50–100 micrometers**, roughly the width of a few cells. Actinium-225 is the leading clinical candidate; radium-223 (Xofigo, approved 2013) is already used for prostate-cancer bone metastases [verify]. The very high LET means far more lethal DNA damage per particle, which may overcome resistance to beta therapy, and the short range spares tissue just beyond the target. The costs: actinium-225 is hard and expensive to produce, and clinical experience is still limited [contested — see pantry flag: alpha-emitter clinical benefit vs. beta is still being established].
-
-<!-- → [CHART: beta vs. alpha emitter comparison — particle, energy, range in tissue (mm vs. µm), LET, crossfire behavior, with Lu-177 and Ac-225 as exemplars] -->
-
-### Beyond PSMA
-
-The same template has spread. **Lutetium-177-DOTATATE (Lutathera)**, approved 2018 for gastroenteropancreatic neuroendocrine tumors, targets somatostatin receptor type 2 (SSTR2) using an octreotate ligand, with gallium-68-DOTATATE PET as its companion diagnostic [verify]. It was the first modern FDA-approved radioligand theranostic and established the regulatory pathway. Active pipelines target FAP (fibroblast activation protein, on tumor stroma), GRPR, CXCR4, glypican-3, mesothelin, and HER2 [verify].
-
-## Worked Example
-
-**Situation.** Return to the opening case: metastatic castration-resistant prostate cancer, prior taxane and AR-pathway inhibitor, multiple bone and node metastases bright on gallium-68-PSMA-11 PET, and one PSMA-faint liver lesion visible on CT. Should this patient receive lutetium-177-PSMA-617?
-
-**Reasoning — first attempt (the dead end).** The intuitive move is: he has metastatic prostate cancer, Pluvicto treats metastatic prostate cancer, so treat. This reasons from the *diagnosis of disease* to the *use of the drug*. It fails because radioligand therapy is not a disease-level treatment — it is a target-level treatment. The drug deposits its dose only where the ligand binds PSMA. The PSMA-negative liver lesion is, to this drug, invisible and untreatable. Reasoning from "there is cancer" instead of "the target is present here" sets the patient up to progress in the one site the therapy cannot touch, while everyone believes he is being treated.
-
-**Reasoning — corrected.** The actual selection question is set by the labeling and the VISION-style criteria: is there *sufficient PSMA expression* to justify therapy, typically judged on the PSMA PET against reference organs such as the liver [verify]? In the SPLASH/VISION framing, eligibility hinges on PSMA-positive disease with no dominant PSMA-negative lesions, because a discordant lesion — bright on CT, dark on PET — flags disease biology the drug won't reach. The presence of one substantial PSMA-negative lesion is precisely the discordance that should give the board pause.
-
-**Resolution.** The team treats with lutetium-177-PSMA-617 *and* plans separate management for the liver lesion (for example, local therapy or a systemic agent that does not depend on PSMA), and follows with post-therapy imaging to confirm where dose was delivered. They also counsel the patient on expected toxicities driven by *off-tumor* PSMA expression: xerostomia (dry mouth) from PSMA on salivary glands, kidney toxicity from PSMA on renal tubules, and marrow suppression [verify]. The same targeting that makes the drug selective also makes the salivary glands a predictable casualty.
-
-**The lesson.** In theranostics, the scan does not just say "cancer is here." It says "the drug can reach *here*, and not *there*." Patient selection is lesion-level, target-level reasoning — not disease-level reasoning.
-
-**The limit.** PSMA expression on a scan predicts *delivery*, not *response*. A bright lesion still may not shrink — radiation resistance, low absorbed dose, or tumor heterogeneity within the "positive" lesion can all break the chain from binding to benefit. Imaging confirms the drug arrives; it does not guarantee the cancer dies.
-
-## Common Misconceptions
-
-**"If the tumor is on the CT, the radioligand will treat it."** Plausible, because we are trained to think a treatment for a cancer treats all of that cancer. It fails because radioligand therapy is delivered through the targeting ligand, not through bulk uptake. A CT-visible, PSMA-negative lesion receives essentially no therapeutic dose. This is the exact trap in the opening case — treating the *diagnosis* (prostate cancer) rather than the *target* (PSMA-positive cells).
-
-**"A theranostic agent is one drug that both diagnoses and treats at the same time."** Almost — but the imaging and therapeutic versions usually carry *different isotopes* on the same ligand scaffold (gallium-68 or fluorine-18 for PET; lutetium-177 or actinium-225 for therapy). The shared element is the targeting molecule, not a single all-in-one isotope. Conflating them obscures why dosimetry and isotope choice matter so much.
-
-**"Alpha-emitters are simply better than beta-emitters because they hit harder."** They do deposit more lethal damage per particle. But their 50–100 µm range means no crossfire to reach target-negative cells inside a heterogeneous tumor, they are far harder to manufacture (especially actinium-225), and clinical evidence is thinner [contested — see pantry flag]. "Harder hit" is not the same as "better outcome" across all tumors.
-
-**"A bright PSMA PET means the patient will respond."** Expression predicts that the drug can *bind and deliver dose* — a necessary condition, not a sufficient one. Response also depends on absorbed dose, radiosensitivity, and intra-lesional heterogeneity. Confusing target expression with clinical response is the recurring proxy-for-truth error this book keeps flagging.
-
-## Exercises
-
-1. **(Comprehend)** In your own words, explain why a PSMA PET scan and a contrast CT can "see" the same liver metastasis but disagree about whether it should be treated with lutetium-177-PSMA-617. Name the physical signal each modality measures.
-
-2. **(Apply)** A patient has neuroendocrine tumor metastases. The team is considering lutetium-177-DOTATATE. What companion imaging agent confirms the target, what receptor is being targeted, and what single imaging finding would make you *withhold* the therapy? Justify each answer in one sentence.
-
-3. **(Apply+)** A tumor shows strikingly *heterogeneous* PSMA expression on PET — some regions bright, some dark, within the same mass. Argue whether a beta-emitter (lutetium-177) or an alpha-emitter (actinium-225) is the more rational choice for that lesion, and state the specific physical property (range, LET, crossfire) driving your decision. Then name one piece of evidence that would reverse your choice.
-
-4. **(Produce)** Draw the theranostic loop for PSMA prostate cancer as a labeled diagram: the shared ligand scaffold in the center, the imaging isotopes and therapeutic isotopes branching off, and the four workflow steps (image → select → treat → re-image). For each step, annotate the **physical signal**, the **spatial scale**, and the **biological question** it answers. (This forces you to make the scale-dependence explicit.)
-
-5. **(Analyze)** List three off-tumor sites where PSMA is expressed, and predict the toxicity each produces during lutetium-177-PSMA-617 therapy. Explain why the *same* selectivity that makes the drug useful also makes these toxicities unavoidable.
-
-## What Would Change My Mind
-
-The central claim here is that imaging and therapy in a theranostic agent are coupled measurements at different scales — and that target expression on a scan predicts *delivery* but not *response*. What would revise that? A large, well-controlled study showing that response to lutetium-177-PSMA-617 is essentially **independent** of baseline PSMA PET intensity — that low-expressing and high-expressing lesions respond at indistinguishable rates — would force a rethink. It would imply either that the imaging signal is not actually tracking the therapeutic delivery (the scan measures something other than what the drug binds), or that delivered dose is so dominated by factors downstream of binding that pre-treatment imaging adds little selection value. Some real-world series already hint that PSMA PET thresholds for patient selection are imperfect predictors [contested — see pantry flag]; a definitive negative result on the expression-response link would not kill theranostics, but it would dethrone the scan from its role as gatekeeper.
-
-## Still Puzzling
-
-- **How "positive" is positive enough?** The threshold for "PSMA-positive disease" on PET — what intensity, relative to which reference organ, over what fraction of lesions — is not settled, and different trials used different criteria. Where exactly is the line, and does it depend on the isotope you plan to treat with?
-- **Can we predict response, not just delivery?** Dosimetry (measuring absorbed radiation dose per lesion from post-therapy imaging) might close the gap between "the drug arrived" and "the tumor died." It is not yet routine. Will personalized dosimetry become standard, and would it actually improve outcomes?
-- **Will alpha-emitters earn their promise?** Actinium-225-PSMA looks compelling for beta-resistant disease, but supply is scarce and the evidence is early. Does the higher LET translate into better survival, or mainly into different toxicities?
-- **Does the model generalize?** PSMA and SSTR2 are unusually clean targets — high, near-uniform expression. Will the FAP, CXCR4, and GRPR programs reach the same clarity, or are these the lucky exceptions?
-
-## References
-
-- NCI, "Theranostics and AI: The Next Advance in Cancer Precision Medicine." https://www.cancer.gov/about-nci/organization/cbiit/news-events/blog/2023/theranostics-and-ai-next-advance-cancer-precision-medicine
-- NCI, "CT Scans and Cancer Fact Sheet" (CT, PET/CT, radiopharmaceuticals, PSMA imaging agents). https://www.cancer.gov/about-cancer/diagnosis-staging/ct-scans-fact-sheet
-- NCI, "Molecular probes for the in vivo imaging of cancer." https://pmc.ncbi.nlm.nih.gov/articles/PMC3407672/
-- NCI, "Cancer and Nanotechnology." https://www.cancer.gov/sites/ocnr/cancer-nanotechnology
-- Source chapter: "Theranostics and Emerging Cancer Nanotechnology" (cba-48), Humanitarians AI cancer series.
-- VISION trial of lutetium-177-PSMA-617 in metastatic castration-resistant prostate cancer [verify primary citation against NEJM Sartor et al. 2021 before publication].
+The CT shows cancer. The PSMA PET shows where the drug can reach. These are two different measurements of the same body, and they disagree about one lesion. The board has to decide how to treat a patient who has both PSMA-positive disease that a radioligand will reach and PSMA-negative disease that it will not. The clinical problem only exists because imaging and therapy are now, in theranostics, the same molecular act.
 
 ---
 
-## Prompts
+### What makes an agent theranostic
 
-<!-- This section is populated automatically by the Cowork enrichment
-     pass. Each D3 figure generated in this chapter gets an entry here:
-     the figure number, a short title, and a ready-to-paste prompt
-     that produces a close approximation of that figure.
+Conventional oncology separates imaging and treatment into distinct tools with distinct molecules. You choose a CT protocol to localize the disease. You prescribe a drug to treat it. Information flows in one direction: the scan informs the treatment, and the treatment is administered independently of how the scan was obtained.
 
-     Prerequisites: paste CLAUDE.md and DESIGN.md from the brutalist/
-     folder before each prompt, or load them into your Claude project
-     context once and reference them by name.
--->
+A **theranostic agent** collapses this separation. The molecule used to image the target is the same molecule — or a near-identical structural analog — used to deliver therapy to that target. The binding event that places the imaging signal in a lesion is the same binding event that later places the therapeutic payload there. Imaging and therapy are not two separate decisions connected by a clinical judgment call. They are two expressions of the same molecular recognition event, differing only in what is attached to the targeting molecule.
 
-*No figures have been generated for this chapter yet.*
-*Run the Cowork enrichment pass to populate this section.*
+The logic of patient selection changes completely in this framework. A patient selected for a conventional chemotherapy on the basis of their diagnosis — they have metastatic prostate cancer — is selected because the drug broadly targets rapidly dividing cells, and their cancer has those cells. A patient selected for a PSMA radioligand therapy is selected because their specific tumors, in their specific body, express the molecular target the drug binds. The selection is not diagnosis-level; it is target-level. And target expression must be confirmed by the same molecular imaging that will guide the therapy — not assumed from the histological diagnosis.
+
+---
+
+### The PSMA system: one ligand, two isotopes, two jobs
+
+**Prostate-specific membrane antigen** is a transmembrane protein expressed at high levels on prostate cancer cells, rising in concentration with disease aggressiveness. It is an enzyme — a carboxypeptidase — with an active site that small molecules can be designed to occupy with high affinity. That active site is the target: a molecule built to fit into it will bind to prostate cancer cells wherever they are in the body.
+
+What happens next depends only on what you attach to the targeting molecule.
+
+Attach a **positron-emitting isotope** — gallium-68, with a half-life of 68 minutes, or fluorine-18, with a half-life of 110 minutes — and the agent is a diagnostic. The isotope decays by emitting a positron that almost immediately annihilates with a nearby electron, producing two gamma-ray photons traveling in exactly opposite directions at 511 keV each. A PET scanner detects these coincident photons and uses the timing information to localize the source to a point along the line connecting the two detectors. Over a 20-minute acquisition the system accumulates enough events to reconstruct a three-dimensional map of where the targeting molecule has bound — a map of PSMA expression across the whole body. The resolution is roughly 4 to 6 millimeters in clinical scanners: coarse enough that individual cells are invisible, but fine enough to identify discrete lesions and compare their uptake to a reference organ. This is gallium-68-PSMA-11 or fluorine-18-DCFPyL — the diagnostic, the scan that lit up the patient's skeleton and nodes in the opening case.
+
+Attach a **therapeutic isotope** — lutetium-177, with a half-life of 6.6 days — and the same targeting molecule becomes a therapy. Lutetium-177 decays by emitting a beta particle: an electron ejected from the nucleus at moderate energy that travels a few millimeters through tissue, ionizing DNA and other molecules along its path. The binding event that would have produced a PET voxel now deposits a radiation dose. Cells expressing PSMA receive a high local radiation dose from the lutetium-177 carried to them by the ligand. Cells not expressing PSMA are not targeted. This is lutetium-177-PSMA-617 — Pluvicto — approved by the FDA in 2022 for metastatic castration-resistant prostate cancer following the VISION trial.
+
+The workflow is a loop: image with the diagnostic version to identify and measure PSMA expression, select the patient based on the imaging findings, treat with the therapeutic version targeting the same sites, then image again — either with a repeat diagnostic scan or by taking advantage of the fact that lutetium-177 also emits a low-energy gamma ray that allows post-therapy scintigraphy — to confirm where the therapeutic dose was delivered and assess response.
+
+<!-- → [DIAGRAM: theranostic loop for PSMA therapy. Center: schematic of the PSMA ligand molecule. Left branch: gallium-68 or fluorine-18 attached, labeled "diagnostic isotope — PET imaging." Right branch: lutetium-177 or actinium-225 attached, labeled "therapeutic isotope — radioligand therapy." Below: circular workflow arrow labeled: (1) image — identify PSMA-expressing lesions; (2) select — confirm eligibility, identify discordant lesions; (3) treat — administer therapeutic version; (4) re-image — confirm dose delivery, assess response. Each workflow step annotated: physical signal (511 keV gamma for PET; beta emission for therapy; gamma for post-therapy scintigraphy), spatial scale (4–6 mm PET resolution; millimeter range beta particle; organ-level post-therapy scan), and biological question (where does PSMA expression exist? / does the drug reach these cells?).] -->
+
+---
+
+### What each step in the loop is actually measuring
+
+Every step in the theranostic loop is a measurement. They measure different things at different scales, and understanding what each one measures — and what it does not — is the discipline the opening case demands.
+
+**The diagnostic PET scan** measures the spatial distribution of PSMA expression across the whole body at the resolution of clinical PET — roughly 4 to 6 millimeters per voxel. The physical signal is positron annihilation gammas. The biological question is: which lesions, wherever they are, bind this targeting molecule at a concentration high enough to produce a signal above background? The scan answers a per-lesion yes/no question across an entire patient. "Yes" means the lesion will take up the therapeutic version of the same agent; "no" means it will not.
+
+**The therapeutic delivery** is not itself an imaging step, but it is still a measurement of sorts — the drug is measuring the target expression of every cell it encounters by binding to those that express PSMA and sparing those that do not. The physical event is beta particle emission from lutetium-177. The scale is millimeters of tissue irradiated around each PSMA-expressing cell. The biological question is: can a lethal radiation dose be deposited in the targeted cells? This is the step the scan predicts but cannot guarantee.
+
+**Post-therapy scintigraphy or SPECT/CT** uses the gamma emissions from lutetium-177 to confirm where the therapeutic dose went. The resolution is coarser than PET — 1 to 2 centimeters — but the image is direct evidence of where the drug actually delivered dose, not just a prediction from the pre-therapy scan.
+
+The PET scan is the proxy. The therapy is the thing. The theranostic premise is that the proxy predicts the thing with enough reliability to select patients and guide decisions. The opening case is precisely the case where that premise is challenged: the liver lesion is bright on CT, dark on PET, and the question is whether the discordance is clinically meaningful or a noise artifact.
+
+---
+
+### Beta and alpha: the isotope choice reshapes the risk-benefit profile
+
+The choice of therapeutic isotope is not incidental. It determines the range of tissue irradiated, the intensity of DNA damage per particle, and the clinical profile of both efficacy and toxicity.
+
+**Beta emitters** release electrons at intermediate energies that travel a few millimeters through tissue — roughly 1 to 10 millimeters depending on the specific isotope and its energy spectrum. Lutetium-177 is the dominant clinical beta emitter in radioligand therapy. Yttrium-90 has higher energy and longer range. Iodine-131, the oldest radioligand therapeutic, treats thyroid cancer using the thyroid's natural iodine uptake as a targeting mechanism.
+
+The millimeter range of beta particles creates **crossfire**: a PSMA-expressing cell irradiates neighboring cells within a few millimeters, including cells that might not themselves express the target. In a tumor with heterogeneous PSMA expression — some cells positive, some negative — the crossfire from the positive cells irradiates the negative cells nearby. This is a feature in heterogeneous tumors, not a flaw. The range of beta particles means "targeted" therapy still has a neighborhood effect.
+
+The cost is that those same millimeters of range also irradiate normal tissue adjacent to the tumor. Beta radiation from lutetium-177 bound to PSMA-expressing salivary gland cells can damage the surrounding gland. Beta radiation from lutetium-177 bound to PSMA-expressing renal tubular cells can damage the kidney. The targeting reduces but does not eliminate off-tumor irradiation.
+
+**Alpha emitters** release helium nuclei — two protons and two neutrons — at very high energies. The range in tissue is 50 to 100 micrometers: the width of roughly five to ten cells. Actinium-225 is the therapeutic alpha emitter in active clinical development for PSMA-targeted therapy. Radium-223, the approved alpha-emitting agent for prostate cancer bone metastases, targets bone-surface calcium rather than a receptor, but demonstrates the clinical proof of concept.
+
+The 50-to-100-micrometer range means almost no crossfire: the alpha particles deposit their energy within the targeted cell and its immediate neighbors, sparing everything beyond that radius. The tradeoff is that a heterogeneous tumor with PSMA-negative cells cannot rely on the neighborhood effect to kill them — each cell needs to be directly targeted.
+
+The very short range also means very high **linear energy transfer** — energy deposited per unit path length — roughly 20 times higher for alpha particles than beta particles at comparable energies. High LET produces more complex, clustered DNA damage that is harder for cells to repair and more likely to produce lethal double-strand breaks even in cells that are otherwise radioresistant. This makes alpha therapy potentially more effective against tumors that have developed resistance to beta-emitter therapy, where the cells may have upregulated DNA repair capacity.
+
+The clinical evidence for actinium-225-PSMA is promising in small series and early trials but not yet established in randomized outcome data at the level of the VISION trial. The supply of actinium-225 is a genuine constraint — it is a cyclotron-produced isotope with limited global production capacity — and manufacturing complexity is higher than for lutetium-177. The claim that alpha emitters are "simply better" than beta emitters overstates the current evidence; they are better suited to specific biological situations and may be particularly valuable for beta-resistant disease, but the general clinical advantage is not yet proven.
+
+<!-- → [CHART: beta versus alpha emitter comparison. Four columns: isotope class; representative isotope; range in tissue; linear energy transfer (qualitative: moderate vs. high); crossfire behavior (yes/no); clinical maturity. Rows: beta (lutetium-177: mm range, moderate LET, yes crossfire, approved); alpha (actinium-225: 50–100 µm range, high LET, minimal crossfire, investigational). Below chart: brief note on radium-223 as the approved alpha emitter for bone disease.] -->
+
+---
+
+### Beyond PSMA: the template and where it generalizes
+
+The PSMA system succeeded as a theranostic because the target has properties that make the template work: PSMA is expressed at high and relatively uniform levels on nearly all metastatic prostate cancer, the small-molecule binding affinity is high enough to achieve good tumor-to-background ratios on imaging, and the same binding event that produces a clean scan also delivers a meaningful radiation dose.
+
+**Lutetium-177-DOTATATE (Lutathera)**, approved in 2018, extends the template to gastroenteropancreatic neuroendocrine tumors. The targeting molecule is octreotate, which binds somatostatin receptor type 2 — expressed at high levels on well-differentiated neuroendocrine tumors. Gallium-68-DOTATATE PET is the companion diagnostic. The NETTER-1 trial established clinical benefit. Lutathera was the first modern FDA-approved radioligand theranostic and established the regulatory pathway that PSMA therapy followed.
+
+The pipeline of new radioligand targets is active. Fibroblast activation protein, expressed on cancer-associated fibroblasts in the tumor stroma rather than on the cancer cells themselves, is being explored as a broadly applicable target across multiple solid tumors. Gastrin-releasing peptide receptor, CXCR4, glypican-3, and mesothelin are in various stages of development. Whether any of these will replicate the PSMA story — clean, high-level target expression, good imaging agent, tractable pharmacology — remains to be demonstrated. PSMA and SSTR2 may be unusually favorable targets rather than representative ones.
+
+---
+
+### What a positive scan does and does not guarantee
+
+The opening case's liver lesion is the right object to keep in mind as a corrective to overconfidence about theranostic selection.
+
+A positive PSMA PET scan means: this lesion expresses PSMA at a concentration high enough to produce a signal above background at the resolution of clinical PET (roughly 4 to 6 millimeters). It means the targeting molecule will bind there. It means the therapeutic isotope, if attached to that molecule, will be delivered to cells in that lesion.
+
+It does not mean: the lesion will respond. It does not mean the cells in that lesion are radiosensitive. It does not mean the absorbed dose delivered will exceed the threshold for cell kill. It does not mean the cells are homogeneously PSMA-positive throughout the lesion — a lesion that is bright on PET can contain PSMA-negative subclones that will survive irradiation of their PSMA-positive neighbors, especially if the beta particle range is insufficient to create crossfire across the diameter of the negative cluster.
+
+The relationship between PSMA PET signal intensity and therapeutic response is imperfect. Patients with very high PSMA expression on pre-therapy PET do not uniformly have the best outcomes. Some bright lesions respond poorly; some moderately bright lesions respond well. The correlation exists in aggregate but is not deterministic at the individual lesion level. A bright scan confirms delivery; it does not guarantee effect.
+
+The opening case's discordant liver lesion is a harder version of the same problem. That lesion is PSMA-negative by PET — but "PSMA-negative" at PET resolution means the signal is below the detection threshold, not that no PSMA-expressing cells are present. A lesion that would have marginal therapeutic response may still have some subpopulations accessible to the drug. The clinical judgment call in the opening case requires integrating: the size and growth rate of the discordant lesion, the overall PSMA burden at responsive sites, the availability of alternative systemic or local therapies for the discordant site, and the patient's overall trajectory and goals.
+
+The scan does not make that decision. It provides the measurement. The decision belongs to the clinical team interpreting what that measurement means for this patient's specific biology.
+
+---
+
+### Off-tumor PSMA: why the targeting creates predictable toxicity
+
+PSMA is not expressed exclusively on prostate cancer. It is also expressed on the proximal tubular cells of the kidney, on normal salivary and lacrimal glands, on the small intestine, and at lower levels in several other normal tissues. The therapeutic ligand binds to PSMA wherever PSMA is expressed. The salivary glands are not safe because the therapy is "targeted to cancer" — they express the same target.
+
+The salivary gland dose from lutetium-177-PSMA-617 produces **xerostomia** — dry mouth — as a significant toxicity in a meaningful fraction of treated patients. This is not an unexpected or unpredicted side effect; it is the mechanistic consequence of PSMA expression in salivary tissue receiving beta irradiation from a PSMA-targeted drug. Similarly, renal tubular PSMA expression creates kidney dose, contributing to nephrotoxicity and making renal function a monitoring priority during therapy.
+
+This is, in a sense, the inverse of the therapeutic principle: the same molecular selectivity that concentrates the drug at the tumor concentrates it at every PSMA-expressing cell in the body. The therapeutic window exists not because normal tissues are completely spared — they are not — but because tumor cells typically express PSMA at substantially higher levels than normal tissues, producing a ratio of tumor dose to normal tissue dose that is, on average, favorable. The salivary gland and kidney are the tissues where that ratio is least favorable, which is why their dose becomes the practical constraint on how much therapy can be delivered.
+
+Predicting and managing these toxicities requires knowing not just where the tumor is, but where PSMA expression in normal tissue will concentrate dose. Dosimetry — calculating the absorbed dose to specific organs from post-therapy imaging — is the tool that would make this prediction individualized. It is not yet routine, but the argument for it is exactly the argument for personalized dosing in any pharmacological system: the distribution of the drug matters as much as the quantity administered, and the distribution varies between patients.
+
+---
+
+## Exercises
+
+**Warm-up**
+
+1. *(Recall — difficulty: low)* In your own words, explain why a PSMA PET scan and a contrast CT can both detect the same liver metastasis but reach opposite conclusions about whether it should receive lutetium-177-PSMA-617. Name the physical signal each modality measures and state what biological property each measures. *What this tests: the modality-specific measurement distinction before applying it to theranostic decision-making.*
+
+2. *(Recall — difficulty: low)* State three differences between beta-emitter and alpha-emitter radioligand therapy. For each difference, state whether it is an advantage or disadvantage and in what biological situation it becomes clinically important. *What this tests: the physical properties of each emitter type and their clinical implications.*
+
+3. *(Recall — difficulty: low)* What is the theranostic loop, and what does each step measure? For the PSMA prostate cancer system, name the diagnostic isotope(s), the therapeutic isotope, the target protein, and the companion imaging agent used for patient selection. *What this tests: the structural logic of the theranostic approach and the specific PSMA system components.*
+
+**Application**
+
+4. *(Apply — difficulty: medium)* A patient with gastroenteropancreatic neuroendocrine tumor is being considered for lutetium-177-DOTATATE. What companion imaging agent is used for patient selection, what receptor is targeted, and what specific imaging finding would make you withhold the therapy? Then explain why "this patient has a neuroendocrine tumor" is not sufficient by itself to prescribe lutetium-177-DOTATATE. *What this tests: generalization of the PSMA theranostic logic to the DOTATATE system and the diagnosis-versus-target distinction.*
+
+5. *(Apply — difficulty: medium)* A tumor shows heterogeneous PSMA expression on PET — some regions intensely bright, some moderately bright, some faint — within a single metastatic lymph node. Argue whether lutetium-177 (beta emitter, millimeter range) or actinium-225 (alpha emitter, 50–100 µm range) is the more mechanistically rational choice for this specific lesion, using the crossfire concept. State one piece of evidence that would reverse your choice. *What this tests: application of beta versus alpha emitter properties to a specific heterogeneity scenario.*
+
+6. *(Apply — difficulty: medium)* A patient receives lutetium-177-PSMA-617 and develops grade 2 xerostomia (significant dry mouth affecting quality of life). Explain mechanistically why this toxicity occurred despite the therapy being "targeted to prostate cancer cells," using the concept of off-tumor PSMA expression. Then state what pre-treatment information, if available, might have predicted the severity of this toxicity. *What this tests: the off-tumor PSMA toxicity mechanism and the concept of individualized dosimetry.*
+
+**Synthesis**
+
+7. *(Synthesize — difficulty: high)* Draw or describe the complete theranostic loop for PSMA prostate cancer therapy. For each of the four steps (image, select, treat, re-image), state: (a) the physical signal; (b) the spatial scale and resolution; (c) the biological question the step answers; and (d) one specific failure mode — a situation where the step's measurement could be misleading or insufficient. Conclude with a statement about what the loop as a whole can and cannot establish about whether a patient will benefit from treatment. *What this tests: integration of the four-step loop with explicit failure-mode analysis at each step.*
+
+8. *(Synthesize — difficulty: high)* Compare the clinical evidence base for lutetium-177-PSMA-617 and actinium-225-PSMA therapy at the time this chapter was written. For each, state the level of evidence (randomized trial, phase II, retrospective series), the patient population studied, and the primary outcome demonstrated. Then explain why the actinium-225 data, however promising, cannot yet support a claim of superiority over lutetium-177, and what specific trial design would be required to establish that claim. *What this tests: evidence-level reasoning applied to a live clinical controversy, with explicit specification of the evidentiary standard needed to change practice.*
+
+**Challenge**
+
+9. *(Challenge — difficulty: high)* The theranostic premise — that target expression on a pre-therapy scan predicts therapeutic response — is foundational to patient selection in radioligand therapy. Yet the relationship between PSMA PET signal intensity and clinical response to lutetium-177-PSMA-617 is imperfect: some high-expressing patients respond poorly; some moderate-expressing patients respond well. Evaluate whether this imperfection undermines the theranostic selection logic or is compatible with it. Specifically: (a) distinguish the claims "the scan predicts drug delivery" and "the scan predicts clinical response," and evaluate whether the imperfection challenges one or both; (b) identify at least three biological mechanisms that could produce poor response despite high PSMA expression; (c) propose what additional pre-treatment measurement — beyond PSMA PET signal intensity — would most improve response prediction; and (d) evaluate whether post-therapy dosimetry (measuring absorbed dose per organ and per lesion from post-therapy imaging) should become a routine component of radioligand therapy management, and what evidence would be required to demonstrate that dosimetry-guided treatment adaptation improves outcomes. Be explicit about what is established versus speculative, and identify the single most important unanswered question in theranostic patient selection. *What this tests: critical analysis of the proxy-versus-response distinction, mechanistic reasoning about response heterogeneity, and the evidence standards for practice change in an active clinical area.*
