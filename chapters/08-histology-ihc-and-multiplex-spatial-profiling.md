@@ -1,152 +1,137 @@
-# Histology, IHC, and Multiplex Spatial Profiling
+# Chapter 8 — Histology, IHC, and Multiplex Spatial Profiling
+*Why a brown stain is not the same as a positive result — and how a treatment decision lives and dies on which bin a pathologist puts a continuous signal into.*
 
-## Learning Objectives
+The biopsy comes in. The clinical question is sharp: does this breast cancer overexpress HER2? If yes, the patient gets trastuzumab and the family of HER2-targeted drugs that have transformed the prognosis of HER2-positive disease. If no, those drugs are not indicated.
 
-After working through this chapter you should be able to:
+The pathologist runs immunohistochemistry. An antibody specific to HER2 binds wherever the protein sits in the tissue, and a detection system deposits a brown precipitate at those sites. She looks at the slide. The tumor cell membranes show brown.
 
-- **Describe** how a tissue sample becomes an FFPE slide and why every step (fixation, embedding, sectioning, antigen retrieval) shapes what the final stain can show.
-- **Explain** the physical signal and biological question of H&E histology versus immunohistochemistry (IHC), and locate both on the scale ladder between flow cytometry and whole-body imaging.
-- **Score** a HER2 IHC result on the 0/1+/2+/3+ scale and a PD-L1 result by tumor proportion score (TPS%), and state what threshold drives a treatment decision.
-- **Compare** single-marker IHC with multiplex spatial profiling (mIF, CODEX, MIBI, imaging mass cytometry) by marker count, spatial information, and standardization.
-- **Critique** the assumption that a companion-diagnostic IHC score is a precise, reproducible measurement of the underlying biology.
+Now the harder part: the scoring system is **0, 1+, 2+, 3+**. A strong, complete, circumferential brown rim on the membranes of more than 10 percent of tumor cells is 3+ — HER2-positive, treat. Faint or incomplete staining is 0 or 1+ — negative, don't treat. This slide shows moderate staining that is somewhat patchy. That is 2+ — equivocal — the bin that means the IHC alone cannot decide, and the case has to go to a gene amplification test.
 
-## Opening Case
-
-A pathologist receives a breast cancer biopsy. The treatment decision turns on one protein: HER2, a growth-factor receptor that, when overexpressed, makes the tumor eligible for trastuzumab (Herceptin) and related HER2-targeted drugs. She runs immunohistochemistry — an antibody stain that deposits a brown precipitate wherever HER2 protein sits in the tissue — and looks down the microscope.
-
-The membranes of the tumor cells show a brown rim. But how brown, and how complete? The HER2 scoring scale is **0, 1+, 2+, 3+**, and the entire clinical decision hinges on which bin this slide falls into. A crisp, complete, intense membrane stain in most cells is 3+ — HER2-positive, treat. Faint, incomplete staining is 0 or 1+ — negative, don't. This slide sits in between: moderate, somewhat patchy staining. That is **2+ — equivocal**, the category that means *the IHC cannot decide*, and the case must go to a separate test (in situ hybridization for HER2 gene amplification) to break the tie.
-
-Here is the failure mode in plain view. The brown precipitate is a real, physical signal — antibody bound to protein, enzyme depositing dye. But turning "this much brown, this complete, in this fraction of cells" into "3+ versus 2+" is a human judgment on a continuous variable forced into discrete bins. Two pathologists can look at the same equivocal slide and score it differently. A patient's access to a targeted drug can ride on which side of a threshold one observer places a continuous stain. The slide measured HER2 protein. The *score* is an interpretation — and the interpretation, not the protein, is what determines the treatment.
-
-## Core Concepts
-
-### From tissue to slide
-
-**Histology** is the study of tissue architecture under the microscope. Before any staining, the tissue must be preserved and sliced. The standard route is **formalin-fixed, paraffin-embedded (FFPE)** tissue:
-
-1. **Fixation** in formalin cross-links proteins, freezing the tissue's structure and preventing decay — but those same cross-links *mask* the very antigens you later want to detect.
-2. **Embedding** in paraffin wax supports the tissue so it can be cut.
-3. **Sectioning** on a microtome produces slices 3–5 µm thick — roughly the thickness of one cell layer — mounted on glass slides.
-
-The baseline stain is **hematoxylin and eosin (H&E)**: hematoxylin turns nuclei blue-purple, eosin turns cytoplasm and extracellular protein pink. H&E shows *architecture* — gland shapes, nuclear atypia, invasion — but says nothing about specific molecules. Its physical signal is bulk dye binding to nucleic acid and protein; its biological question is *what does this tissue look like, and is it malignant?*
-
-### Immunohistochemistry: putting a molecule on the map
-
-**Immunohistochemistry (IHC)** detects a *specific* protein in tissue using antibodies. The workflow:
-
-1. **Deparaffinize** and rehydrate the section.
-2. **Antigen retrieval** (heat or enzyme) reverses the formalin cross-links so the target epitope is accessible again — a step that, if under- or over-done, changes how much signal you get.
-3. **Block** endogenous peroxidase and non-specific binding.
-4. **Primary antibody** binds the target protein.
-5. **Secondary antibody / detection system** (typically HRP-conjugated polymer) amplifies the signal.
-6. **Substrate (DAB)** — the enzyme converts it to a **brown precipitate** wherever the antibody is bound.
-7. **Counterstain** with hematoxylin to show nuclei; coverslip; image by light microscopy.
-
-Physical signal: a colored enzymatic precipitate marking antibody-bound protein. Spatial resolution: single-cell, and crucially **in tissue context** — you see not just that HER2 is present, but *which* cells, in *what architecture*. That is the property the previous chapter's flow cytometry threw away when it dissociated the tumor.
-
-<!-- → [DIAGRAM: scale ladder — flow cytometry (cells in suspension, no location) → IHC/H&E (single cells in tissue context) → multiplex spatial (many markers, mapped) → whole-body PET (organism, coarse); annotate signal and spatial scale at each rung] -->
-
-### Scoring: continuous biology, discrete decisions
-
-IHC outputs range from crude to quantitative:
-
-- **Qualitative:** positive vs. negative.
-- **Semi-quantitative:** the **0 / 1+ / 2+ / 3+** intensity scale, used for HER2.
-- **Quantitative composites:** the **H-score** (intensity × percent positive cells, 0–300); the **Allred score** for breast hormone receptors (ER/PR); and for PD-L1, the **tumor proportion score (TPS%)** — the percentage of tumor cells with membrane staining — and the **combined positive score (CPS)** that also counts immune cells.
-
-These scores are the hinge between measurement and decision. **HER2 3+** (or 2+ confirmed amplified by in situ hybridization) means treat with trastuzumab [verify]. **PD-L1 TPS ≥ 50%** (assayed, for the pembrolizumab indication, with the **22C3** antibody clone) has been used as a threshold for first-line checkpoint inhibitor eligibility in some lung cancers [verify]. The biology — protein abundance — is continuous. The decision is a bin. The threshold is where a number becomes a treatment.
-
-### The reproducibility problem
-
-Here the chapter's honesty obligation kicks in. These scores are *not* fully objective measurements.
-
-- The **HER2 2+ "equivocal"** bin exists precisely because IHC alone cannot reliably resolve borderline cases, which is why a confirmatory in situ hybridization test is built into the algorithm [verify].
-- **PD-L1 assays are genuinely discordant.** Different drugs were approved with different antibody clones (22C3, 28-8, SP142, SP263) on different platforms, scored by different metrics (TPS, CPS, IC%). Studies comparing these assays have found they do *not* always agree on which tumors are "positive," and inter-observer agreement on PD-L1 scoring is imperfect [contested — see pantry flag: PD-L1 assay and reader discordance is well documented]. A tumor can be "positive" by one approved assay and "negative" by another.
-
-So the same tissue can yield different actionable calls depending on which antibody, platform, and reader produced the score. That is not a peripheral caveat; for PD-L1 it is a defining, unresolved feature of the field.
-
-### Multiplex spatial profiling
-
-Single-marker IHC answers one molecular question per slide. **Multiplex** methods answer dozens *at once, in situ*, mapping the tumor microenvironment:
-
-- **Multiplex immunofluorescence (mIF)** uses several fluorophores (often with tyramide signal amplification and antibody stripping between rounds) to read 6–8+ proteins in one section.
-- **CODEX** uses iterative cycles of DNA-barcoded antibodies to reach tens of markers.
-- **Imaging mass cytometry (IMC) and MIBI** use metal-tagged antibodies read by mass spectrometry, pushing toward 40+ markers with no spectral overlap.
-- **Vectra-Polaris** provides multispectral imaging and analysis.
-
-These let you ask *spatial* questions single IHC cannot: are cytotoxic T cells touching tumor cells, or excluded to the stromal margin? Is PD-L1 on the tumor or on neighboring macrophages? The payoff is a marker-rich map of *who is next to whom*. The cost — and the current frontier of contention — is **standardization**: multiplex-IF workflows are not yet harmonized across labs, and turning a beautiful multiplexed image into a reproducible, decision-grade number remains an open methodological problem [contested — see pantry flag].
-
-<!-- → [CHART: IHC scoring ladder — HER2 0/1+/2+/3+ membrane patterns and PD-L1 TPS% thresholds — beside a multiplex spatial map showing tumor/immune cell neighborhoods] -->
-
-## Worked Example
-
-**Situation.** The opening-case breast biopsy: moderate, somewhat patchy HER2 membrane staining. Is this patient HER2-positive and eligible for trastuzumab?
-
-**Reasoning — first attempt (the dead end).** "There's clearly brown membrane stain, so HER2 is overexpressed — call it positive and treat." This treats *any* visible signal as a positive result. It fails because HER2 IHC is scored by **intensity and completeness of membrane staining in a fraction of tumor cells**, not by mere presence of brown. Faint or incomplete staining (0, 1+) is *not* eligibility; strong, complete, circumferential staining in >10% of cells (3+) is. Calling everything brown "positive" would over-treat patients whose tumors won't respond to a HER2-targeted drug — confusing a continuous signal with a binary truth.
-
-**Reasoning — corrected.** She scores against the defined criteria. The staining is moderate and incomplete in many cells — neither the faint/absent pattern of 0–1+ nor the strong, complete rim of 3+. This is **2+ (equivocal)**. By the diagnostic algorithm, 2+ does *not* settle the question; it triggers a **reflex in situ hybridization (ISH)** test for HER2 gene amplification [verify]. The ISH counts HER2 gene copies directly, bypassing the subjective intensity judgment.
-
-**Resolution.** The reflex ISH shows no HER2 gene amplification. The final call is **HER2-negative**: the patient is not a candidate for trastuzumab, and treating on the basis of the ambiguous 2+ stain alone would have been an error. The IHC didn't fail — it correctly flagged its own uncertainty by landing in the equivocal bin, and the algorithm sent the hard cases to a more definitive test.
-
-**The lesson.** A companion-diagnostic IHC score is a *thresholded interpretation* of a continuous stain. The equivocal bin is not a defect; it is the system admitting where antibody staining alone cannot decide, and routing those cases to confirmation.
-
-**The limit.** Even the ISH-confirmed call captures HER2 status in *this* sampled fragment at *this* moment. Tumors are heterogeneous: a different block might score differently, and HER2 status can shift under treatment. A single slide is a spatial and temporal sample, not the whole tumor.
-
-## Common Misconceptions
-
-**"If the IHC shows brown stain, the marker is positive."** Plausible — brown means antibody bound. But scoring depends on intensity, pattern (membrane vs. cytoplasmic), completeness, and the fraction of cells, against a defined threshold. Faint staining is "negative" by criteria even though brown is visible. This is exactly the trap the opening case sets: any-brown-is-positive over-treats.
-
-**"A HER2 or PD-L1 score is an objective number."** It is a human (or algorithm) reading a continuous signal forced into bins, with real inter-observer variability — and for PD-L1, real disagreement *between approved assays*. The same tumor can be positive by one clone and negative by another. Treating the score as a precise constant ignores the documented discordance [contested — see pantry flag].
-
-**"Multiplex imaging with 40 markers makes single-marker IHC obsolete."** Multiplex methods add spatial and combinatorial richness, but they are far less standardized, harder to reproduce across labs, and not yet validated as routine companion diagnostics. For a HER2 or ER decision, a well-validated single-marker IHC plus reflex testing remains the clinical standard; multiplex is, for now, mostly a research tool.
-
-**"Flow cytometry and IHC measure the same thing, just differently."** Both detect proteins with antibodies, but flow cytometry reports *how many* cells in a suspension are positive, with no location, while IHC reports *which* cells are positive *and where they sit* in the tissue. The spatial context — tumor margin, immune infiltration pattern — is the entire reason IHC exists and is exactly what dissociation for flow cytometry destroys.
-
-## Exercises
-
-1. **(Comprehend)** Explain why formalin fixation both preserves tissue and necessitates an antigen-retrieval step before IHC. What does retrieval physically reverse?
-
-2. **(Apply)** A lung tumor is scored PD-L1 TPS = 45% with the 22C3 antibody. The clinical threshold for first-line single-agent pembrolizumab in this scenario is TPS ≥ 50% [verify]. Is the patient eligible by that threshold? Then name two sources of uncertainty that could move a 45% across the 50% line.
-
-3. **(Apply+)** A HER2 IHC reads 2+. Walk through the decision algorithm step by step, naming the confirmatory test, what it physically measures, and why the workflow does not simply treat all 2+ cases as positive. State the risk of treating versus not treating based on the 2+ stain alone.
-
-4. **(Produce)** Create a one-page "scoring reference card" for a trainee pathologist covering HER2 (0/1+/2+/3+ membrane criteria) and PD-L1 (TPS vs. CPS, the relevant threshold, the antibody clone). For each marker, write one sentence stating the treatment decision the score drives. (Producing the card forces you to tie each bin to a consequence.)
-
-5. **(Analyze)** Two labs report opposite PD-L1 results on the same tumor using two different approved assays. List the specific differences between assays that could cause this, and argue what a clinician should do when faced with discordant PD-L1 calls.
-
-## What Would Change My Mind
-
-The central claim is that an IHC companion-diagnostic score is a *thresholded interpretation* of a continuous signal — subjective enough that the same tissue can yield different actionable calls depending on antibody, platform, and reader — rather than a precise measurement of the underlying biology. What would revise that? A large, multi-lab study showing that a fully automated, digital-pathology scoring algorithm reads HER2 and PD-L1 with near-perfect agreement across labs *and* that those harmonized scores predict treatment response better than current human scoring — collapsing the inter-observer and inter-assay variability I'm emphasizing — would weaken the framing. If digital quantification turned these scores into reproducible, biology-tracking numbers, the "interpretation, not measurement" claim would lose force for those markers. The documented PD-L1 assay discordance and HER2 2+ inter-observer disagreement are what currently keep the framing honest [contested — see pantry flag]; convincing evidence that automation has closed those gaps would move me.
-
-## Still Puzzling
-
-- **Will digital pathology and AI scoring resolve the subjectivity, or relocate it?** Automated HER2/PD-L1 quantification is advancing fast. Does it remove reader variability, or just move the arbitrary choices into the algorithm's training and thresholds?
-- **How should clinicians handle PD-L1 assay discordance?** When approved assays disagree, there is no clean rule for which to trust. Is harmonization across clones achievable, or are these fundamentally measuring slightly different things?
-- **What is the right unit of "positivity" for a heterogeneous tumor?** A single 3–5 µm section samples a sliver of a spatially varied tumor. How many sections, from how many blocks, make a "tumor-level" HER2 or PD-L1 status trustworthy?
-- **Can multiplex spatial profiling become decision-grade?** The maps are gorgeous and biologically rich, but standardization lags. What would it take to turn a CODEX or MIBI neighborhood analysis into a reproducible companion diagnostic?
-
-## References
-
-- NCI, "Research Areas: Cancer Diagnosis" (biomarkers, imaging, single-cell and spatial data). https://www.cancer.gov/research/areas/diagnosis
-- NCI, "Tests and Procedures Used to Diagnose Cancer" (biopsy, IHC, tumor markers). https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis
-- NCI Core Resources Guide (optical imaging, microscopy cores). https://ccr.cancer.gov/sites/default/files/nci_core_resources_guide_2020.pdf
-- Source chapter: "Protein Analysis: Western Blot, ELISA, and Immunohistochemistry" (cba-77), Humanitarians AI cancer series.
-- HER2 IHC scoring (0/1+/2+/3+) and reflex ISH algorithm; trastuzumab (Herceptin) companion diagnostic [verify against current ASCO/CAP HER2 guideline before publication].
-- PD-L1 IHC assays and clones (22C3, 28-8, SP142, SP263); TPS and CPS scoring; pembrolizumab indication thresholds [verify and update against current labeling].
+Here is the thing to hold onto. The brown precipitate is physically real — antibody bound to protein, enzyme turning a substrate into colored product. But turning "this shade of brown, this complete, in this fraction of cells" into "2+ versus 3+" is a judgment call on a continuous measurement forced into four discrete bins. Two pathologists can look at the same equivocal slide and give different scores. A patient's access to a targeted therapy can turn on which side of a threshold a single observer places a continuous stain. The slide measured a protein. The score is an interpretation. The interpretation — not the protein — is what determines the treatment.
 
 ---
 
-## Prompts
+### Before any stain: what happens to the tissue
 
-<!-- This section is populated automatically by the Cowork enrichment
-     pass. Each D3 figure generated in this chapter gets an entry here:
-     the figure number, a short title, and a ready-to-paste prompt
-     that produces a close approximation of that figure.
+A tissue sample does not arrive at a stain directly. Before the antibody binds anything, the tissue must be preserved, embedded, and sliced — and every step in that preparation shapes what the final stain can show.
 
-     Prerequisites: paste CLAUDE.md and DESIGN.md from the brutalist/
-     folder before each prompt, or load them into your Claude project
-     context once and reference them by name.
--->
+The standard is **formalin-fixed, paraffin-embedded tissue**, universally abbreviated FFPE. Formalin — a solution of formaldehyde — cross-links proteins. It forms methylene bridges between nearby amino acids, locking the three-dimensional structure of the tissue in place, preventing enzymatic degradation, and preserving cellular morphology essentially indefinitely at room temperature. This is why FFPE archival blocks from decades-old surgeries can be retrieved and analyzed today. The preservation is excellent.
 
-*No figures have been generated for this chapter yet.*
-*Run the Cowork enrichment pass to populate this section.*
+The cross-linking creates a problem. The same methylene bridges that lock the tissue's architecture also mask the very epitopes — the specific protein surface regions that antibodies bind — that immunohistochemistry needs to detect. The target protein is there, but it is buried under covalent cross-links, structurally inaccessible. Before any antibody can bind, the cross-links must be partially reversed. This is **antigen retrieval**, typically accomplished by heating the section in a buffer solution — the heat breaks the methylene bridges and refolds the protein enough to expose the epitope. Too little heat leaves the epitope still masked; too much denatures the protein further and can reduce or abolish signal. Antigen retrieval is where much of the variability in IHC intensity originates: labs with slightly different retrieval protocols, different buffers, different incubation times, produce different amounts of signal on identical tissue.
+
+After retrieval, the section is deparaffinized (paraffin is hydrophobic, aqueous solutions cannot penetrate it without removing the wax first), rehydrated, and prepared for antibody application. Endogenous peroxidase — present in red blood cells and some tissue cells — is blocked to prevent it from reacting with the detection substrate and producing false positive background signal. Non-specific protein binding is blocked. Then the primary antibody is applied, incubated at the appropriate temperature and time to allow binding, washed away from unbound sites, and the signal is amplified through a secondary detection system — typically a polymer conjugated to horseradish peroxidase — and visualized with DAB substrate, which the enzyme converts to the brown precipitate. A hematoxylin counterstain colors nuclei blue-purple so the tissue architecture is visible alongside the antibody signal.
+
+The physical signal IHC produces is colored enzymatic product at the sites of antibody binding. The spatial resolution is single-cell, and crucially the signal is *in tissue context* — you see not just that a protein is present but which cells express it, whether the staining is in the membrane or the cytoplasm or the nucleus, and how the expressing cells relate to non-expressing cells in the surrounding architecture. This spatial information is what IHC provides that protein measurements on cell homogenates or flow cytometry on dissociated cells cannot.
+
+---
+
+### H&E and IHC: two questions, two signals
+
+**Hematoxylin and eosin** is not an immunohistochemical stain — it uses no antibodies. Hematoxylin is a basic dye that binds to negatively charged molecules, primarily the phosphate backbone of nucleic acids in the nucleus. Eosin is an acidic dye that binds to positively charged molecules, primarily cytoplasmic proteins and extracellular matrix. The result is that nuclei stain blue-purple and cytoplasm stains pink, with variation in shade and texture that reflects the tissue's cell types, architectural organization, and pathological state.
+
+H&E answers an architectural question: what does this tissue look like, and is its organization consistent with malignancy? A pathologist reading H&E sees gland formation, nuclear atypia, mitotic figures, invasion into surrounding stroma, lymphovascular invasion. She can recognize that this is a carcinoma, grade it, and assess the margins. She cannot, from H&E alone, tell whether HER2 is overexpressed, whether PD-L1 is present, or whether the tumor is mismatch-repair deficient. Those are molecular questions about specific proteins, requiring molecular reagents.
+
+IHC answers molecular questions in spatial context. The antibody is the molecular reagent; the tissue context is what distinguishes IHC from a protein blot or a flow cytometry readout. Both H&E and IHC are microscopy of fixed tissue sections. They differ in what they measure: H&E measures bulk dye binding that reflects tissue composition; IHC measures specific antibody binding that reports on a single target protein.
+
+Scale-wise, both operate at the same physical resolution — single cells at a few micrometers — but they sit at a different rung of the information hierarchy. H&E reports morphology; IHC reports one molecular identity within that morphology.
+
+<!-- → [DIAGRAM: tissue preparation and IHC workflow. Top row: five sequential steps in the FFPE preparation — tissue biopsy → formalin fixation (cross-links shown as bridges between proteins) → paraffin embedding (wax block) → microtome sectioning (3–5 µm slice) → glass slide mounted section. Bottom row: six sequential steps in IHC staining — deparaffinize/rehydrate → antigen retrieval (heat reversing cross-links) → block → primary antibody → secondary antibody/HRP polymer → DAB substrate (brown precipitate). Final image: microscopy view showing brown membrane staining on tumor cells. Annotate: where variability enters (retrieval conditions) and what the final signal represents (antibody-bound HER2 protein).] -->
+
+---
+
+### Scoring: where continuous biology meets discrete decisions
+
+The brown stain does not come with a number. Converting the amount of brown into a clinical decision requires a scoring system — and that is where the biology's continuity collides with the decision's need for a discrete answer.
+
+For HER2 in breast cancer, the scoring system is:
+
+- **0**: No staining, or faint/incomplete membrane staining in ≤10% of tumor cells. HER2-negative.
+- **1+**: Faint/barely perceptible incomplete membrane staining in >10% of tumor cells. HER2-negative.
+- **2+**: Weak to moderate complete membrane staining in >10% of tumor cells, OR strong complete membrane staining in ≤10% of tumor cells. **Equivocal** — requires reflex in situ hybridization.
+- **3+**: Strong, complete, circumferential membrane staining in >10% of tumor cells. HER2-positive — treat.
+
+The criteria are as precise as words can make them. But "strong versus moderate," "complete versus incomplete," and "the fraction of cells that qualify" are all judgments applied to a gradient, not measurements on a scale. Where the line falls between 1+ (faint, negative) and 2+ (moderate, equivocal) for a given slide is a call that involves the observer's training, the lab's staining conditions, the specific antibody used, and the specific tumor's morphology. Inter-observer concordance for HER2 scoring is reasonable at the extremes — a 3+ is usually agreed to be 3+ — and deteriorates in the middle where most clinical difficulty lives.
+
+The 2+ category is the system being honest about its own uncertainty. Moderate staining means the antibody signal is real and present, but its relationship to the biological question — does this tumor overexpress HER2 enough to respond to anti-HER2 therapy? — cannot be resolved by the stain alone. The algorithm routes 2+ to **reflex in situ hybridization**: a test that directly counts HER2 gene copies in the nucleus using fluorescent or chromogenic probes. Gene amplification (more HER2 gene copies per cell than the reference gene) resolves the ambiguity in one direction; no amplification resolves it in the other. The 2+ category exists so that borderline staining is confirmed rather than guessed.
+
+PD-L1 scoring adds another layer of complexity. PD-L1 determines eligibility for checkpoint inhibitor therapy — pembrolizumab and related antibodies — in multiple cancer types. But PD-L1 scoring involves not just a single scale but a choice among scoring systems:
+
+- **Tumor proportion score (TPS)**: the percentage of viable tumor cells showing any membrane staining above background.
+- **Combined positive score (CPS)**: the ratio of all PD-L1-positive cells (tumor cells, lymphocytes, macrophages) to total viable tumor cells, expressed as a percentage, with the numerator sometimes capped at the denominator.
+- **Immune cell score**: focuses on the proportion of tumor-infiltrating immune cells staining positive.
+
+Different drugs were approved with different antibody clones on different platforms scored by different metrics. Pembrolizumab in non-small-cell lung cancer uses the 22C3 clone scored by TPS. Nivolumab uses the 28-8 clone. Atezolizumab in urothelial carcinoma uses the SP142 clone scored by immune cell score. These are not interchangeable. Studies comparing these assays directly have documented that they do not always agree on which tumors are "positive." A tumor that is TPS ≥ 50% by one assay can be TPS < 50% by another, not because the biology is different but because the antibody, the detection platform, and the scoring algorithm are different. The same tissue, different result, different treatment recommendation.
+
+This is not a peripheral caveat to the field of IHC-based companion diagnostics. For PD-L1, it is a central, documented, incompletely resolved feature. Different drugs were developed in parallel using different assay systems, and the assays were not harmonized before approval. The practical consequence is that a clinician whose tumor returned "PD-L1 negative" on one assay may be uncertain whether the result reflects the tumor's biology or the choice of antibody.
+
+---
+
+### The scale ladder from single cells to whole-body
+
+IHC sits at a specific position in the hierarchy of cancer measurements. Below it are molecular assays — Western blots, ELISAs, mass spectrometry, single-cell sequencing — that measure proteins or nucleic acids in cells or homogenates with greater molecular precision but no spatial context. Above it is whole-body imaging — CT, PET — that maps disease across the entire patient at centimeter-scale resolution but cannot see individual cells.
+
+IHC's position is: single-cell resolution, in spatial context, for one protein at a time, in a tissue section a few micrometers thick. The spatial context is the key property. It is what allows the pathologist to say not just "HER2 protein is present in this tumor" but "HER2 protein is expressed in the membrane of these cells in this glandular structure adjacent to this stromal component." The architecture around the positive cells is part of the information.
+
+Flow cytometry also detects proteins with antibodies, at single-cell resolution, for multiple markers simultaneously. What it cannot do is tell you where the positive cell was in the tissue. When a tumor is mechanically and enzymatically dissociated to produce the single-cell suspension that flow cytometry requires, the spatial relationships are destroyed. A cytotoxic T cell that was sitting against a tumor cell membrane is now an identical entry in the flow data to one that was excluded at the stroma. IHC preserves the location; flow cytometry sacrifices it for the ability to measure multiple markers simultaneously and quantify cell populations precisely.
+
+---
+
+### Multiplex spatial profiling: many markers, one section
+
+Single-marker IHC answers one molecular question per slide. A slide stained for HER2 tells you about HER2. A slide stained for PD-L1 tells you about PD-L1. If you want to know both, and where each is relative to the other, you need either multiple sequential stains on serial sections — which introduces alignment problems and tissue consumption — or multiplex methods that read multiple markers in the same section simultaneously.
+
+**Multiplex immunofluorescence** uses fluorescent secondary antibodies rather than enzymatic colorimetric detection, with each protein target labeled in a different fluorescent color. Commercial platforms like Vectra-Polaris image six to eight fluorescent channels simultaneously in a single section, with spectral unmixing algorithms separating the contributions of overlapping fluorophores. More aggressive protocols use iterative cycles — stain with antibodies, image, strip the antibodies off the section, stain again with a different panel — to reach larger numbers of markers at the cost of longer workflows.
+
+**CODEX** uses antibodies conjugated to unique DNA barcodes rather than fluorophores. Each imaging cycle uses a small number of fluorescent reporters that hybridize to specific barcodes; after imaging, the reporters are stripped and a new set applied. The DNA-barcode scaffold separates the number of markers (which can be 40–50) from the number of fluorescent channels (which is physically limited), allowing very high marker counts from the same section.
+
+**Imaging mass cytometry** and **multiplexed ion beam imaging** use metal-tagged antibodies instead of fluorescent labels. A laser or ion beam ablates tiny spots from the section; the ablated material is analyzed by mass spectrometry, which measures the metal content of each spot and maps it to a spatial position. Because mass spectrometry resolves distinct masses precisely, there is no spectral overlap — 40+ metals can be used simultaneously without crosstalk, at spatial resolution approaching single-cell.
+
+These methods produce rich, multi-dimensional maps of the tumor microenvironment: which cell types are present, what they express, and how they are spatially organized relative to each other. The kind of question they enable — are cytotoxic T cells in direct contact with tumor cells, or physically excluded to the stromal compartment? — cannot be answered by any single-marker approach, or by methods that require tissue dissociation.
+
+The gap between research capability and clinical deployment is wide. Multiplexed methods are not standardized across laboratories. Antibody panels, antigen retrieval conditions, image analysis algorithms, and cell-type classification schemes vary between groups. Turning a 40-marker spatial map into a reproducible, validated companion-diagnostic number that drives a treatment decision has not been accomplished for any indication. The methods are generating important biological insights about tumor microenvironment organization that will eventually shape treatment; they are not currently informing clinical decisions directly.
+
+<!-- → [CHART: comparison of spatial profiling methods. Columns: method (single-marker IHC, mIF, CODEX, IMC/MIBI), number of simultaneous markers (1, 6–8, 40–50, 40+), spatial resolution (single cell for all), throughput (routine clinical to research-grade), standardization (clinical standard to not standardized), current clinical role (companion diagnostic standard to research tool). Each row annotated with one representative assay or platform.] -->
+
+---
+
+### What the score is and is not
+
+The opening case's pathologist correctly scores the slide as 2+ equivocal and routes it to reflex ISH. The ISH comes back negative for gene amplification. The final report: HER2-negative. The patient does not receive trastuzumab.
+
+This was the right sequence. The 2+ IHC was honest about its uncertainty; the ISH resolved it. The error that did not happen — and the one this chapter is trying to prevent — would have been to treat 2+ as positive because there was visible brown staining. Any visible brown on any membrane would mean "HER2 is here, treat with trastuzumab." That reasoning collapses the continuous stain into a binary, ignores the scoring criteria, and over-treats patients whose tumors will not respond.
+
+The score is a thresholded interpretation of a continuous signal. The threshold is where biology becomes a decision. Between the biology and the threshold sits measurement variability — differences in antigen retrieval, antibody concentration, incubation time, observer judgment, and assay platform. Some of that variability is controlled by guidelines and quality assurance programs. Some of it is irreducible. The HER2 2+ equivocal bin is the honest acknowledgment of where the measurement variability is large enough that the test cannot decide alone, and the algorithm sends borderline cases to a more definitive measurement.
+
+PD-L1 is the harder case because there is no single confirmatory test — different approved drugs came with different approved assays, and the assays are not always concordant. The clinical reality is that a pathologist using the 22C3 clone with TPS scoring for a pembrolizumab decision is not measuring the same thing as a pathologist using SP142 for an atezolizumab decision, even though both are called "PD-L1 testing." The biology being interrogated — does this tumor express PD-L1? — is the same; the measurements are not. This is a field with a documented assay concordance problem that has not been resolved by technical improvements, because the problem is structural: different drugs were developed with different companion diagnostics that were never harmonized.
+
+A trainee who understands this is equipped for clinical practice. A companion-diagnostic IHC score is not a blood chemistry result with well-established reference ranges and small analytical imprecision. It is a scored interpretation of an immunochemical signal, with assay-specific and observer-specific variability, that has been validated to predict treatment response in specific drug-tumor combinations at specific thresholds. The validation is what makes it actionable. The variability is what makes the algorithm's equivocal bin and its reflex testing requirements necessary.
+
+---
+
+## Exercises
+
+**Warm-up**
+
+1. *(Recall — difficulty: low)* Explain why formalin fixation both preserves tissue morphology and necessitates an antigen retrieval step before IHC. What chemical event does formalin fixation create, and what does antigen retrieval physically reverse? *What this tests: the FFPE preparation steps and their mechanistic relationship.*
+
+2. *(Recall — difficulty: low)* State the HER2 IHC scoring criteria for each bin (0, 1+, 2+, 3+) in terms of staining intensity, membrane completeness, and cell fraction. For each bin, state the clinical action it drives — and explain why the 2+ bin drives a different action than either 0/1+ or 3+. *What this tests: the scoring system before applying it to case-based scenarios.*
+
+3. *(Recall — difficulty: low)* Name two approved PD-L1 antibody clones used in companion diagnostics for checkpoint inhibitor therapy, the scoring metric associated with each (TPS, CPS, or immune cell score), and one cancer type where each is used. *What this tests: the PD-L1 assay diversity before the concordance problem is analyzed.*
+
+**Application**
+
+4. *(Apply — difficulty: medium)* A lung tumor is scored PD-L1 TPS = 47% using the 22C3 antibody. The clinical threshold for first-line single-agent pembrolizumab in this indication is TPS ≥ 50%. Is the patient eligible by that threshold? Then name two specific sources of measurement variability — one from the laboratory preparation process and one from observer scoring — that could each independently move a true 47% result above or below the 50% threshold, and explain what clinical consequence each directional error would cause. *What this tests: threshold reasoning and the clinical consequences of variability near a decision boundary.*
+
+5. *(Apply — difficulty: medium)* A HER2 IHC returns 2+ on a biopsy. Walk through the complete decision algorithm step by step: what test is performed next, what physical property of the tumor it measures, what result in each direction means for HER2 status, and what treatment decision each result drives. Then state one situation where a 2+ with negative reflex ISH might still raise concern about whether the final "HER2-negative" call accurately represents the whole tumor. *What this tests: the complete 2+ workflow with the reflex ISH, and the sampling-limitation problem.*
+
+6. *(Apply — difficulty: medium)* A research group runs multiplex immunofluorescence on a cohort of non-small-cell lung cancer samples, staining simultaneously for PD-L1, CD8 (cytotoxic T cells), CD68 (macrophages), and cytokeratin (tumor cells). They find that patients with CD8-positive T cells in direct contact with cytokeratin-positive tumor cells have better responses to PD-1 checkpoint blockade than patients with equivalent PD-L1 TPS but T cells excluded to the stromal margin. Explain what spatial information this analysis captures that single-marker PD-L1 IHC cannot, and state one reason why this finding, however biologically compelling, cannot currently replace PD-L1 TPS as a clinical companion diagnostic. *What this tests: the spatial capability of multiplex profiling and the gap between research findings and clinical companion-diagnostic validation.*
+
+**Synthesis**
+
+7. *(Synthesize — difficulty: high)* Compare the HER2 IHC scoring system and the PD-L1 TPS scoring system as examples of continuous biology forced into clinical decision thresholds. For each: (a) describe what is being measured and how it is converted to a score; (b) identify where in the scoring process the greatest measurement variability arises; (c) state whether the algorithm handles that variability with a built-in resolution pathway (as HER2 2+ → reflex ISH does) or leaves it unresolved; and (d) evaluate whether digital pathology and automated scoring would reduce the variability that matters most. Conclude with a general statement about what it would take for an IHC companion diagnostic score to be considered a precise measurement rather than a thresholded interpretation. *What this tests: comparative analysis of two scoring systems with explicit variability attribution and an evaluation of the path toward precision.*
+
+8. *(Synthesize — difficulty: high)* A hospital pathology department is considering adopting a multiplex spatial profiling platform to routinely characterize the tumor immune microenvironment alongside standard HER2 and PD-L1 IHC in all solid tumor biopsies. Evaluate this proposal: (a) what biological information would the multiplex platform add to current clinical assessment; (b) what specific clinical decision could it plausibly improve, and what evidence would be required to validate it as a companion diagnostic; (c) what standardization and reproducibility requirements must be met before the multiplex result could be used to change a treatment decision; and (d) what are the realistic timelines and barriers to clinical implementation given current regulatory and methodological constraints. *What this tests: translation of multiplex profiling capability into a clinical deployment decision, with explicit evidence requirements and barrier analysis.*
+
+**Challenge**
+
+9. *(Challenge — difficulty: high)* The PD-L1 companion diagnostic problem — four approved assays using different antibodies, different platforms, and different scoring metrics that do not always agree — has persisted despite documented clinical consequences and significant academic effort to harmonize them. Evaluate why the problem has not been solved: (a) identify the structural, regulatory, and economic factors that created it (different drugs developed by different companies with different companion diagnostics); (b) assess whether technical harmonization — using a single antibody and scoring method for all PD-L1 indications — is biologically valid, given that different scoring metrics (TPS vs. CPS) may actually be measuring different relevant biology; (c) evaluate whether the problem could be dissolved by replacing PD-L1 IHC with a different predictive biomarker (tumor mutational burden, gene expression profiling, microsatellite instability) that is more reproducible; and (d) state your own assessment of the most promising path forward and what evidence would validate it. Be explicit about what is established versus contested, and identify the single most important question whose answer would most change clinical practice for checkpoint inhibitor patient selection. *What this tests: structural analysis of a persistent clinical problem, mechanistic reasoning about whether harmonization is achievable or whether the different assays are measuring genuinely different things, and evaluation of alternative biomarker strategies.*
