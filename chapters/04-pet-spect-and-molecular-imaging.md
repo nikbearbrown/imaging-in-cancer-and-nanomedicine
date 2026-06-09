@@ -1,126 +1,130 @@
-# PET, SPECT, and Molecular Imaging
+# Chapter 4 — PET, SPECT, and Molecular Imaging
 
-## Learning Objectives
+A 62-year-old man treated for lymphoma a year ago has a follow-up CT. There is a 2-centimeter mass where the tumor used to be. Is it residual cancer, or scar tissue left behind after successful treatment? CT cannot tell — both are masses of roughly the same density and shape. The man is told he may need another round of harsh chemotherapy.
 
-By the end of this chapter you will be able to:
+A PET scan is ordered. Lymphoma cells are metabolically ravenous; scar tissue is metabolically quiet. PET, which images metabolic activity rather than structure, shows the mass is not taking up the radiotracer — it is metabolically dead. The tumor on CT is scar. No further chemotherapy is needed. A functional signal answered a question no anatomic image could: not *is there a mass?* but *is the mass alive?*
 
-- **Explain** how PET forms an image from radioactive decay — positron emission, annihilation, and coincidence detection — and why this signal reports *function*, not anatomy.
-- **Describe** how FDG, a glucose analog, traces the elevated metabolism of cancer cells, and **name** the false positives and false negatives that follow from what FDG actually measures.
-- **Distinguish** PET from SPECT, and general metabolic tracers (FDG) from target-specific tracers (PSMA, DOTATATE), by the biological question each answers.
-- **Justify** why functional imaging is fused with anatomic imaging (PET/CT, PET/MRI), reasoning from PET's coarse resolution.
-- **Critique** the inference from "FDG-avid" to "malignant," weighing PET's radiation cost and specificity against its sensitivity.
+Now the failure mode. Three months later the man develops a fever and a new PET shows a bright, FDG-avid lymph node. The reflex is to call it relapsed lymphoma and restart chemotherapy. But FDG does not measure cancer. It measures glucose uptake — and inflammation and infection light up FDG just as brightly as tumor. The fever suggests infection. Treating the bright spot as cancer without confirming it could mean toxic chemotherapy for an infected node. PET's signal is powerful and dangerously easy to over-read.
 
-## Opening Case
+This chapter is about what the radiotracer actually measures, and the gap between "it lights up" and "it is cancer."
 
-A 62-year-old man treated for lymphoma a year ago has a follow-up CT. There is a 2-centimeter mass where the tumor used to be. Is it residual cancer, or just scar tissue left behind after a successful treatment? CT cannot tell — both are masses of roughly the same density and shape (cba-29). The man is told he may need another round of harsh chemotherapy.
+---
 
-A **PET scan** is ordered. Lymphoma cells are metabolically ravenous; scar tissue is metabolically quiet. PET, which images metabolic *activity* rather than structure, shows the mass is **not** taking up the radiotracer — it is metabolically dead. The "tumor" on CT is scar. No further chemotherapy is needed (cba-29). Here a functional signal answered a question that no anatomic image could: not *is there a mass?* but *is the mass alive?*
+## How PET forms an image
 
-Now the failure mode, which is the mirror image. Three months later the man develops a fever and a new PET shows a bright, FDG-avid lymph node. The reflex is to call it relapsed lymphoma and restart chemotherapy. But FDG does not measure cancer; it measures glucose uptake — and **inflammation and infection light up FDG just as brightly as tumor** (cba-29). The fever suggests infection. Treating the bright spot as cancer, without confirming, could mean toxic chemotherapy for what is actually an infected node. PET's signal is powerful and dangerously easy to over-read. This chapter is about what the radiotracer actually measures, and the gap between "it lights up" and "it is cancer."
+Tag a biological molecule with a radioactive atom, inject it, and let it accumulate wherever that molecule is used. The radioactivity announces its location by emitting paired signals that the scanner triangulates.
 
-## Core Concepts
-
-### What PET measures: decay, annihilation, coincidence
-
-Plain language: tag a biological molecule with a radioactive atom, inject it, and let it accumulate wherever that molecule is used; the radioactivity announces its location by emitting paired signals that the scanner triangulates.
-
-Formally, **positron emission tomography (PET)** images the distribution of a **radiolabeled tracer** — a biological molecule carrying a radioactive isotope — that accumulates in tissue according to a biological process (cba-29). The physics is elegant. The isotope decays by emitting a **positron** (a positive electron). The positron travels a tiny distance, meets an ordinary electron, and the two **annihilate**, converting their mass into two gamma-ray photons that fly off in *exactly opposite directions* (180° apart). A ring of detectors around the patient records pairs of photons arriving at the same instant — **coincidence detection** — and the line connecting each pair must pass through the annihilation point. Collect millions of such lines and a computer reconstructs where the tracer concentrated (cba-29).
+The physics is specific and worth understanding precisely. A radioactive isotope in the tracer decays by emitting a **positron** — a positive electron. The positron travels only a short distance before meeting an ordinary electron. The two annihilate each other, converting their combined mass into two gamma-ray photons that fly off in exactly opposite directions — 180 degrees apart, each carrying 511 keV of energy. A ring of detectors around the patient records pairs of photons arriving at the same instant. This is **coincidence detection**: when two detectors fire simultaneously, the annihilation event must have occurred somewhere along the line connecting them. Collect millions of such lines and a computer reconstructs a three-dimensional map of where the tracer concentrated.
 
 <!-- → [DIAGRAM: PET signal chain — isotope decay emits a positron → positron annihilates with an electron → two 511 keV photons emitted back-to-back at 180° → detector ring records the coincident pair → many lines reconstruct the activity map. Include FDG half-life (~110 min) and the trapped-glucose mechanism inset.] -->
 
-Crucially, PET does not measure structure. It measures **where a biological process is happening**. The image is a map of activity. This is why PET is *functional* (or *molecular*) imaging, the complement to the anatomic imaging of the previous chapters (cba-29).
+PET does not measure structure. It measures where a biological process is happening. The image is a map of activity. This is why PET is *functional* imaging — it is the complement, not the competitor, to the anatomic imaging of the previous chapters.
 
-### FDG: tracing a tumor's hunger for glucose
+The coarseness follows from the physics: the positron travels a small but nonzero distance before annihilating, and that travel smears the apparent location of the event. Resolution is roughly **4 to 6 mm** — the coarsest of all clinical modalities. A PET image cannot distinguish structures separated by less than half a centimeter. A CT can resolve half a millimeter. An MRI is between them. The inverse relationship between functional richness and spatial precision that runs through this entire book appears here in its starkest form.
 
-The most widely used tracer is **fluorodeoxyglucose (FDG)** — a glucose molecule with a radioactive fluorine-18 atom substituted in. Cells take up FDG through their normal glucose transporters and phosphorylate it, but the modified molecule cannot proceed through metabolism, so it is **trapped** inside the cell (cba-29). The more glucose a cell consumes, the more FDG it accumulates. Cancer cells, which characteristically burn glucose at elevated rates (the Warburg effect), take up more FDG than most normal tissue and appear as bright spots (cba-29).
+---
 
-Fluorine-18 has a **half-life of about 110 minutes** — long enough to synthesize the tracer, inject it, and scan, short enough that the radioactivity clears in hours (cba-29). That short half-life is also a logistical constraint: the isotope is cyclotron-produced and decays fast, so it must be made near where it is used.
+## FDG: tracing a tumor's metabolism
 
-### Scale and signal: where PET sits on the ladder
+The most widely used tracer is **fluorodeoxyglucose (FDG)** — a glucose molecule with a radioactive fluorine-18 atom substituted at one position. Cells take up FDG through their normal glucose transporters and phosphorylate it, but the modified molecule cannot proceed further through glycolysis. It is **trapped** inside the cell. The more glucose a cell consumes, the more FDG it accumulates.
 
-- **Resolution:** roughly **4–6 mm** — the coarsest of all the clinical modalities, set partly by the small distance the positron travels before annihilating (cba-29).
-- **Field of view:** whole-body, in a single study. PET's reach is its glory: it can find metabolically active disease *anywhere* in the body at once.
-- **Biological question:** Where in the body is there active metabolism or expression of a specific molecular target — and is a known mass alive or dead?
+Cancer cells characteristically consume glucose at elevated rates — the Warburg effect described in earlier chapters. They take up more FDG than most normal tissue and appear as bright spots against a darker background. This makes FDG sensitive for many common cancers: lymphoma, lung, breast, colon, head and neck, and others.
 
-That coarse resolution explains the field's defining design choice. A bright PET spot tells you activity is *here, roughly* — but 4–6 mm is too coarse to say exactly which anatomical structure it sits in. So PET is fused with an anatomic scan: **PET/CT** or **PET/MRI** overlays the functional map on a high-resolution structural image, marrying *what is active* (PET) to *exactly where* (CT/MRI) (cba-29). Hybrid imaging is the direct consequence of PET's place on the resolution ladder: pair a coarse, biologically rich signal with a sharp, structurally precise one.
+Fluorine-18 has a half-life of about 110 minutes — long enough to synthesize the tracer, inject it, wait for it to distribute, and scan, short enough that the radioactivity largely clears within hours. The short half-life is also a logistical constraint: fluorine-18 is produced in a cyclotron and decays quickly, so it must be made at or near the facility where it will be used. PET cannot be practiced everywhere; it requires either an on-site cyclotron or proximity to a production facility that can deliver fresh tracer within hours.
 
-### PET's limits: false positives and false negatives
+---
 
-Because FDG measures glucose uptake — not cancer — it misleads in two directions:
+## What FDG misses, and what falsely lights it up
 
-- **False positives:** inflammation, infection, brown fat, recent surgical sites, and granulomatous disease all consume glucose and light up FDG, mimicking tumor (cba-29). This is the opening case's trap.
-- **False negatives:** some cancers are not FDG-avid — well-differentiated thyroid cancer, many prostate cancers, indolent and mucinous tumors take up little FDG and can hide (cba-29).
+Because FDG measures glucose uptake rather than malignancy, it misleads in two directions, and being clear about both is essential before ordering a scan.
 
-PET also carries real costs: a combined **PET/CT delivers about 25 mSv** of radiation — substantial, roughly double a body CT — and a scan costs several thousand dollars and depends on cyclotron-produced isotopes (cba-29). High sensitivity, imperfect specificity, real dose: PET is a strong but easily over-interpreted signal.
+**False positives.** Anything that consumes glucose heavily will accumulate FDG. Inflammation and infection are the most clinically important sources of false-positive PET signal. Active inflammatory sites — healing surgical wounds, granulomatous disease, recently irradiated tissue, infected nodes — take up FDG indistinguishably from tumor at the resolution the scanner provides. Brown adipose tissue, activated by cold, is intensely FDG-avid and can create confusing uptake in the neck and mediastinum. This is the opening case's trap: a feverish patient with an FDG-avid node is as likely to have an infected node as a relapsed lymphoma, and the PET signal alone cannot tell the difference.
 
-### SPECT: PET's lower-resolution cousin
+**False negatives.** Not all cancers are metabolically hyperactive. Well-differentiated thyroid carcinoma, many prostate cancers, indolent lymphomas, and mucinous tumors often take up too little FDG to appear bright against background. A negative FDG-PET in a patient whose cancer type is known to be FDG-poor is not reassuring. It means only that the metabolic signal was not there — not that the cancer was not there.
 
-**Single photon emission computed tomography (SPECT)** is the related nuclear-imaging technique. Instead of detecting paired annihilation photons, SPECT images isotopes that emit *single* gamma photons directly, using a rotating gamma camera. It is more widely available and cheaper than PET but provides somewhat **lower resolution** (cba-29). A familiar example is the **bone scan** (bone scintigraphy), in which a technetium-99m-labeled phosphonate accumulates in areas of bone turnover, flagging bone metastases — less specific than PET but inexpensive and broadly available (cba-29).
+A combined **PET/CT** delivers approximately 25 millisieverts of radiation — roughly double a body CT and a meaningful dose in absolute terms, though small compared with the dose of a therapeutic course. This is not negligible, particularly for younger patients and for surveillance studies that may be repeated. Every PET scan ordered should have a specific question that the scan can plausibly answer.
 
-### Target-specific tracers: from metabolism to molecules
+---
 
-FDG reads a general property (glucose hunger). The frontier of molecular imaging is tracers aimed at a *specific molecule* that a particular cancer expresses:
+## Why PET must be fused with anatomy
 
-- **PSMA PET** targets prostate-specific membrane antigen, a protein on prostate cancer cells. Ga-68 or F-18 PSMA tracers are highly sensitive for detecting and staging prostate cancer — including in the FDG-negative cases where FDG fails — and are FDA-approved for metastatic prostate cancer evaluation (cba-29).
-- **DOTATATE PET** (Ga-68) targets somatostatin receptors on neuroendocrine tumors (cba-29).
-- Amino-acid tracers (methionine, FET, FDOPA) for brain tumors; choline and fluciclovine for prostate cancer recurrence (cba-29).
+PET's coarse resolution forces a design choice. A bright spot at 4 to 6 mm resolution says that metabolic activity is *here, approximately* — but it cannot say with sufficient precision which anatomical structure the activity occupies. Is the bright spot in a lymph node, or in adjacent bowel, or in overlying muscle? In the chest, is it in the lung or mediastinum?
 
-The logic is profound and worth naming: **a molecule that drives a cancer's biology can be both an imaging target and a therapy target.** The same PSMA that lights up on a PET scan can be the docking site for a radioactive drug that kills the cell — the basis of **theranostics** (therapy + diagnostics), pairing a diagnostic tracer with a therapeutic one aimed at the identical target. Molecular imaging thus runs in parallel with the targeted-therapy revolution (cba-29; NCI Theranostics, 2023).
+This is why PET is fused with anatomic imaging. **PET/CT** combines the functional map with a high-resolution CT in a single examination, so the computer overlays the two images: the PET tells you what is active, the CT tells you exactly where. **PET/MRI** does the same with an MRI, providing better soft-tissue contrast at the cost of longer acquisition time.
 
-## Worked Example
+Hybrid imaging is not a luxury added to make the scan look better. It is the direct consequence of PET's position on the resolution ladder. Without the anatomic overlay, PET is a map without streets — you can see that something is happening, but you cannot navigate to it.
 
-**Situation.** A man with rising PSA (a prostate-cancer blood marker) after surgery has, by definition, cancer somewhere — but a conventional CT and bone scan show nothing. Where is the disease? The plan is to repeat the CT with more contrast and hope the recurrence becomes visible.
+---
 
-**Reasoning, including a dead end.** Repeating anatomic imaging is the dead end. The recurrence is small — too small to distort anatomy enough for CT to flag, and prostate cancer is often **not FDG-avid**, so even a standard FDG-PET may miss it (cba-29). Pushing harder on signals that the biology evades cannot work; the problem is not image quality but signal *choice*.
+## SPECT: PET's lower-resolution cousin
 
-The right move switches to a **target-specific** signal. **PSMA PET** images the prostate-specific membrane antigen that the recurrent cells express, regardless of their glucose metabolism or their size. Even a tiny PSMA-expressing deposit concentrates the tracer and lights up against a dark background, whole-body, in one study (cba-29). PSMA PET routinely localizes recurrent prostate cancer that CT, bone scan, and FDG-PET all miss. The disease was always there; only a tracer matched to the cancer's specific molecule could find it.
+**Single-photon emission computed tomography (SPECT)** is the related nuclear-imaging technique. Instead of detecting paired annihilation photons, SPECT images isotopes that emit single gamma photons directly, using a rotating gamma camera. It is more widely available and cheaper than PET, but provides lower resolution and somewhat lower sensitivity.
 
-**The lesson.** When the question is "where is this specific cancer," choose the tracer that targets a molecule the cancer actually expresses — not a generic metabolic tracer, and not a finer anatomic scan. Molecular specificity, not resolution, is the lever.
+The most familiar SPECT application in oncology is the **bone scan**: a technetium-99m-labeled phosphonate accumulates in areas of bone remodeling, flagging bone metastases. The bone scan is less specific than PET — fractures, arthritis, and healing injuries also remodel bone — but it is inexpensive, broadly available, and does not require a cyclotron. For bone metastases from prostate cancer and breast cancer, it remains a practical first tool in many settings.
 
-**The limit.** PSMA PET's specificity is also its boundary. It sees PSMA expression — so a PSMA-low variant of the cancer can hide, just as FDG misses low-glucose tumors. And at 4–6 mm resolution, PSMA PET reports that disease is *in this region*; it cannot resolve a microscopic deposit, count cells, or confirm malignancy without tissue. The tracer narrows the search to a place; it does not replace the biopsy that proves what is there (cba-29).
+SPECT's physics means it cannot achieve PET's sensitivity for detecting small lesions. Where PET uses coincidence detection to precisely locate each annihilation event, SPECT uses physical collimators to accept only photons arriving from specific directions, discarding the majority of emitted photons. The tradeoff between availability and performance is different for SPECT than for PET, and the choice between them is partly logistical.
 
-## Common Misconceptions
+---
 
-**"If it lights up on PET, it's cancer."** Plausible, because tumors are FDG-avid and a bright spot looks like a hit. It fails because FDG measures glucose uptake, not malignancy: inflammation, infection, brown fat, and healing surgical sites all light up identically (cba-29). This is precisely the opening case's trap — the FDG-avid node in a feverish patient was more likely infection than relapse. A positive PET is a lead to be confirmed, not a diagnosis. Treating the proxy (glucose uptake) as the thing (cancer) is the recurring error of this whole book.
+## Target-specific tracers
 
-**"A negative PET rules out cancer."** Plausible, because PET is highly sensitive for many tumors. It fails because some cancers — well-differentiated thyroid, many prostate, indolent and mucinous tumors — take up little FDG and stay dark despite being malignant (cba-29). A negative FDG-PET does not clear a patient whose tumor type is known to be FDG-poor; the right move there is a target-specific tracer or tissue, as the prostate worked example showed.
+FDG reads a general property — glucose hunger — that many cancers share with inflamed tissue. The frontier of molecular imaging is tracers aimed at a specific molecule that a particular cancer expresses, narrowing the signal to the cancer's distinctive biology rather than its generic metabolic intensity.
 
-**"PET is the highest-tech scan, so it gives the sharpest, most detailed images."** Plausible, because PET is expensive and cutting-edge. It fails because PET has the *coarsest* resolution of all clinical modalities — 4–6 mm, far worse than CT or MRI (cba-29). Its power is not sharpness but the *kind* of signal: biological activity and molecular expression, whole-body. That is exactly why PET must be fused with CT or MRI to know precisely where the activity sits. High-tech does not mean high-resolution; it means a different question answered.
+**PSMA PET** targets prostate-specific membrane antigen, a transmembrane protein expressed at high levels on prostate cancer cells. Gallium-68 and fluorine-18 PSMA tracers are FDA-approved for staging and restaging prostate cancer and are dramatically more sensitive than CT, bone scan, or FDG-PET for detecting metastatic and recurrent prostate disease — including the biochemically recurrent cases where PSA rises after surgery but all conventional imaging is negative. The reason: prostate cancer cells express PSMA regardless of their glucose metabolism, and small deposits that would not distort anatomy and are not FDG-avid still concentrate the PSMA tracer against a low background.
 
-## Exercises
+**DOTATATE PET** targets somatostatin receptors on neuroendocrine tumor cells. Gallium-68-DOTATATE is more sensitive than the older octreotide scintigraphy it replaced and more specific than FDG for these tumors.
 
-1. **(Recall/Understand.)** Walk through the PET signal chain in order: name what the isotope emits, what happens when it meets an electron, how many photons result and in what geometric relationship, and how the detector ring uses them to locate the source. Then state in one sentence why this makes PET a functional rather than an anatomic modality.
+The conceptual step that links molecular imaging to therapeutic oncology is this: **a molecule that identifies a cancer's cells on an imaging study can also be the docking site for a therapeutic agent aimed at those same cells.** The same PSMA that lights up on a diagnostic PET scan is the target for lutetium-177-PSMA-617, a radioligand therapy that delivers a lethal radiation dose to the same cells the scan found. Molecular imaging and targeted therapy become two expressions of the same molecular recognition. This is the logic of **theranostics**, the fusion of therapy and diagnostics around a shared target, covered in the next chapter.
 
-2. **(Apply.)** FDG has a half-life of about 110 minutes. A dose is calibrated at 8:00 a.m. (a) Roughly how much radioactivity remains at noon? (b) Explain, from the half-life, why FDG must be produced near the scanner rather than shipped overnight from a distant supplier, and why this constrains where PET can be offered.
+---
 
-3. **(Apply+/Produce.)** For each scenario, choose between FDG-PET, PSMA PET, and DOTATATE PET, and **justify by the molecular target and the cancer's biology**: (a) staging an aggressive lymphoma; (b) localizing biochemically recurrent prostate cancer with a normal CT; (c) imaging a metastatic neuroendocrine tumor. Produce a three-row table; for each, name one tracer that would be a poor choice and explain what its signal would miss.
+## When the right answer is a different tracer
 
-4. **(Analyze.)** PET resolution is 4–6 mm and MRI resolution is ~1 mm. Explain why this resolution gap is the *reason* PET and MRI are physically combined into PET/MRI rather than used as competitors. What does each modality contribute to the fused image, and what would be lost by using either alone?
+A patient with rising PSA after prostatectomy has, by definition, cancer somewhere — but CT and bone scan show nothing. The plan is to repeat CT with more contrast.
 
-5. **(Evaluate/Produce.)** Return to the opening case's feverish patient with the FDG-avid node. The team is about to restart chemotherapy. Write a one-paragraph dissent: state precisely what the FDG signal does and does not establish, name the two most likely benign explanations given the clinical context, and specify the next step that would actually distinguish relapse from infection.
+Repeating anatomic imaging is the wrong answer. The recurrence is small — below the threshold for anatomic distortion — and prostate cancer is frequently not FDG-avid, so even a standard FDG-PET may miss it. Pushing harder on signals that the biology evades cannot work. The problem is not image quality; it is signal choice.
 
-## What Would Change My Mind
+The right move switches to a target-specific signal. PSMA PET images the antigen that recurrent prostate cancer cells express, regardless of their glucose metabolism or their size. Even a small deposit concentrates the tracer and produces signal against a dark background, across the whole body in a single study. PSMA PET routinely localizes recurrent prostate cancer that CT, bone scan, and FDG-PET all miss. The disease was always there; only a tracer matched to the cancer's specific molecule could find it.
 
-The central claim is that PET measures a biological *proxy* (metabolic or molecular activity), not malignancy itself, so "FDG-avid" cannot be read as "cancer" without confirmation, and that PET's coarse resolution forces fusion with anatomic imaging. A specific finding would revise the first half: a tracer (or combination) prospectively validated to distinguish malignant from benign uptake — separating tumor from inflammation and infection — with specificity high enough to replace biopsy across tumor types. Total-body and long-axial-field-of-view PET, plus dual-tracer and kinetic-modeling approaches, are pushing toward better specificity, but as of now they remain research advances, not a clinical standard that lets a bright spot stand alone as a diagnosis (NCI Theranostics, 2023). For the resolution half: if detector and reconstruction advances pushed PET resolution toward 1 mm, the strict need to fuse with CT/MRI for localization would weaken. Neither result is in hand; either would move me.
+The limit of this argument: PSMA PET's specificity is also its boundary. A PSMA-low variant of the cancer can hide, just as FDG misses low-glucose tumors. And at 4 to 6 mm resolution, PSMA PET reports that disease is in this region — it cannot resolve a microscopic deposit, count cells, or confirm malignancy without tissue. The tracer narrows the search to a location; it does not replace the biopsy that confirms what is there.
 
-## Still Puzzling
+---
 
-- **How specific can a tracer get before specificity becomes a liability?** A tracer perfectly specific to one molecular target (say PSMA) is blind to variants that lose that target. As cancers are increasingly imaged by single-molecule tracers, the false-negative risk from target heterogeneity grows. Where is the optimal balance between a general tracer and a hyper-specific one?
+## What would change this picture
 
-- **Does earlier, more sensitive molecular detection actually save lives?** PSMA PET finds recurrence sooner and more often — but finding disease earlier is not the same as helping the patient live longer or better. Whether the added sensitivity translates into mortality benefit, rather than just earlier knowledge, is genuinely unsettled for some uses [verify].
+The central claim is that PET measures a biological proxy — metabolic or molecular activity — not malignancy itself, so a positive PET requires confirmation before treatment, and PET's coarse resolution forces fusion with anatomic imaging. The finding that would revise the first part: a tracer or combination validated to distinguish malignant from benign uptake prospectively, with specificity high enough to replace biopsy across tumor types. Total-body PET, dual-tracer approaches, and kinetic modeling are advancing toward better specificity, but none has yet crossed the threshold of replacing tissue confirmation as a clinical standard. For the resolution argument: if detector and reconstruction advances pushed PET resolution toward 1 mm, the dependence on fusion with CT or MRI for precise localization would weaken. Neither result is in hand.
 
-- **Will theranostics blur the line between imaging and therapy entirely?** If the same molecular target is imaged and then treated with a paired radioligand, "diagnosis" and "treatment" become one act. How should we evaluate the safety and benefit of a tool that is simultaneously a camera and a drug (NCI Theranostics, 2023)?
+---
+
+## Still open
+
+How specific a tracer can become before specificity becomes a liability is genuinely unsettled. A tracer perfectly specific to PSMA is blind to PSMA-low prostate cancer variants, just as FDG is blind to glucose-poor tumors. As cancers are increasingly imaged by single-molecule tracers, the false-negative risk from target heterogeneity grows. The optimal balance between generality and specificity depends on the cancer and the clinical question.
+
+Whether earlier, more sensitive molecular detection actually saves lives is incompletely answered for several applications. PSMA PET finds recurrence sooner and more often than conventional imaging. Finding disease earlier is not the same as helping the patient live longer or better. Whether the added sensitivity translates into mortality benefit, rather than earlier knowledge with the same eventual outcome, is being studied but not settled.
+
+Whether theranostics will blur the line between imaging and therapy is a question the next chapter addresses directly. If the same molecular target is imaged and then treated with a paired radioligand, the act of imaging is simultaneously the beginning of treatment planning, and evaluating the safety and benefit of the combined tool requires different frameworks than evaluating either component alone.
+
+---
+
+## LLM Exercises
+
+1. **(Signal chain)** Walk through the PET signal chain in order: name what the isotope emits, what happens when it meets an electron, how many photons result and in what geometric relationship, how the detector ring uses them to locate the source, and why this makes PET a functional rather than anatomic modality. Then explain in one sentence why resolution is 4 to 6 mm rather than millimeter-scale like CT.
+
+2. **(Half-life consequences)** FDG has a half-life of approximately 110 minutes. A dose is calibrated at 8:00 a.m. Compute roughly how much radioactivity remains at noon. Explain why this half-life means FDG must be produced near the scanner rather than shipped from a central facility, and describe one practical consequence this has for access to PET imaging.
+
+3. **(Tracer selection)** For each scenario, choose between FDG-PET, PSMA PET, and DOTATATE PET, justify by the molecular target and the cancer's biology, and name one tracer that would be a poor choice and explain what its signal would miss: (a) staging an aggressive lymphoma; (b) localizing biochemically recurrent prostate cancer with a normal CT; (c) imaging metastatic neuroendocrine tumor.
+
+4. **(Fusion logic)** PET resolution is 4 to 6 mm and MRI resolution is approximately 1 mm. Explain why this resolution gap is the reason PET and MRI are combined into PET/MRI rather than used as competitors. What does each modality contribute to the fused image, and what would be lost by using either alone?
+
+5. **(Opening case dissent)** The team in the opening case is about to restart chemotherapy because of a new FDG-avid lymph node in a patient with fever. Write a one-paragraph dissent: state precisely what the FDG signal establishes and what it does not, name the two most likely benign explanations given the clinical context, specify the next step that would distinguish relapse from infection, and explain why treating the proxy (glucose uptake) as the thing (cancer) is the error to avoid.
+
+---
 
 ## References
 
-- "Chapter 29 — Cancer Diagnosis: Imaging and the Tissue Sample" (cba-29), clinical-imaging source chapter, *Imaging in Cancer and Nanomedicine* pantry. (PET physics and FDG mechanism, false positives/negatives, dose, SPECT, bone scan, PSMA/DOTATATE tracers, hybrid imaging.)
-- *Molecular probes for the in vivo imaging of cancer.* PMC3407672. https://pmc.ncbi.nlm.nih.gov/articles/PMC3407672/ (PET/SPECT, optical imaging, molecular-imaging strategy.)
-- NCI, *Theranostics and AI in Cancer Precision Medicine* (2023). https://www.cancer.gov/about-nci/organization/cbiit/news-events/blog/2023/theranostics-and-ai-next-advance-cancer-precision-medicine
-- NCI, *CT Scans and Cancer Fact Sheet* (PSMA imaging agents, radiopharmaceuticals). https://www.cancer.gov/about-cancer/diagnosis-staging/ct-scans-fact-sheet
-- NCI, *Cancer Imaging Basics.* https://dctd.cancer.gov/research/research-areas/imaging/basics
-
-## Prompts
-
-<!-- This section is populated automatically by the Cowork enrichment pass. -->
-
-*No figures have been generated for this chapter yet.*
+- Phelps, M. E. (2000). PET: the merging of biology and imaging into molecular imaging. *Journal of Nuclear Medicine*, 41(4), 661–681.
+- Wahl, R. L., et al. (2009). From RECIST to PERCIST: evolving considerations for PET response criteria in solid tumors. *Journal of Nuclear Medicine*, 50(Suppl 1), 122S–150S.
+- Hofman, M. S., et al. (2020). Prostate-specific membrane antigen PET-CT in patients with high-risk prostate cancer before curative-intent surgery or radiotherapy (proPSMA). *Lancet*, 395(10231), 1208–1216.
+- Krenning, E. P., et al. (1993). Somatostatin receptor scintigraphy with [111In-DTPA-D-Phe1]- and [123I-Tyr3]-octreotide: the Rotterdam experience with more than 1000 patients. *European Journal of Nuclear Medicine*, 20(8), 716–731.
+- NCI. *Theranostics and AI in Cancer Precision Medicine* (2023). https://www.cancer.gov/about-nci/organization/cbiit/news-events/blog/2023/theranostics-and-ai-next-advance-cancer-precision-medicine
+- NCI. *Cancer Imaging Basics.* https://dctd.cancer.gov/research/research-areas/imaging/basics
