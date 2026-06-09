@@ -1,134 +1,142 @@
-# Image-Guided Therapy
+# Chapter 11 — Image-Guided Therapy
+*Imaging as a coordinate system — how precision makes high doses possible, and why a smaller margin is the safety, not the risk.*
 
-## Learning Objectives
+The lung tumor is 2 centimeters, stage I, in the lower lobe of a patient who cannot tolerate surgery. The plan is stereotactic body radiation therapy — five fractions of very high dose, sub-millimeter precision, steep dose gradients that fall off within millimeters of the target.
 
-By the end of this chapter you will be able to:
+There is a problem the diagnostic images do not show directly. The tumor moves. Every breath cycle, the lower lobe slides more than a centimeter. The nodule does not occupy a fixed point in space; it traces a trajectory, a distribution of positions across the breathing cycle. A single planning CT, taken at one moment, captures one point in that distribution and calls it the target.
 
-- **Explain** how imaging functions not as a diagnostic picture but as *intervention infrastructure* — the coordinate system that lets radiation, surgery, and ablation hit a target and spare normal tissue.
-- **Distinguish** the imaging task at each stage of image-guided radiation therapy — planning (defining the target), guidance (verifying position per fraction), and response assessment — and **match** the modality (CT, CBCT, MR-Linac, PET) to each.
-- **Quantify** how image guidance reduces the geometric *margin* around a target, and **explain** why a smaller margin lowers normal-tissue dose.
-- **Evaluate** the central tradeoff: tighter targeting permits higher, more conformal, ablative doses (IMRT, SBRT, protons) but raises the cost of any geometric or imaging error.
-- **Critique** the inference from a post-treatment imaging change to a claim of treatment success, distinguishing image response from cure.
+Aim the beam at that static point and two failures happen simultaneously. At the moments when the tumor has moved away from the plan's assumed position, the high-dose region misses it — the cancer is underdosed. At the same moments, healthy lung tissue that briefly occupies the beam's path receives the full ablative dose. The precision that makes SBRT effective — the steep dose gradients, the concentrated high-dose volume — becomes the liability. A conformal beam centered on the wrong coordinate is more dangerous than a broad beam, not less, because the dose that misses the tumor is going somewhere specific: the surrounding lung.
 
-## Opening Case
+The solution is not a better picture of the tumor. It is imaging integrated into the delivery itself. A four-dimensional CT acquires the tumor's position at each phase of the breathing cycle, not just at one. Respiratory gating fires the beam only during the phase when the tumor is in the planned position. Cone-beam CT, taken in the treatment room in treatment position immediately before each fraction, verifies that the tumor is actually where the plan assumed.
 
-A patient with a stage I non-small-cell lung tumor is medically inoperable. The plan is **stereotactic body radiation therapy (SBRT)** — a very high dose delivered in five fractions with sub-millimeter precision (cba-36). The target is a 2 cm nodule in the lower lobe. The problem no diagnostic image reveals on its own: the tumor *moves*. With every breath the lower lobe slides more than a centimeter, so the nodule is not at a fixed coordinate; it is at a *distribution* of coordinates that depends on which moment of the breathing cycle you freeze.
-
-The naïve approach is to take one planning CT, draw a margin around where the tumor appeared, and treat that volume. But a single snapshot captures one phase of the breath. If the beam is shaped to a static outline while the tumor travels a centimeter, two failures follow at once: during part of each breath the tumor sits *outside* the high-dose region and is underdosed, while healthy lung that the tumor only transiently occupies gets the full ablative dose. The very precision that makes SBRT curative — steep dose gradients, dose falling off within millimeters — becomes a liability the instant the target is in the wrong place (cba-36).
-
-The solution is not a better picture of the tumor. It is imaging woven into the delivery itself: a four-dimensional CT that captures the tumor across the breathing cycle, **respiratory gating** that fires the beam only when the tumor is in position, and **cone-beam CT** taken in the treatment room immediately before the fraction to verify that the tumor is where the plan assumed (cba-36). Here imaging is not a diagnosis. It is the coordinate system that makes the therapy possible. That reconceptualization — imaging as intervention infrastructure rather than as a snapshot — is the subject of this chapter.
-
-<!-- → [DIAGRAM: Image-guided radiation pipeline — planning CT/MRI/PET (define target volumes) → inverse planning (sculpt dose with MLC) → per-fraction CBCT or MR-Linac (verify/adapt position) → delivery (IMRT/VMAT/SBRT/protons) → response imaging — with the margin-reduction arrow annotated at the guidance step] -->
-
-## Core Concepts
-
-### Imaging as a coordinate system, not a picture
-
-In the diagnostic chapters, an image was a measurement you read. In image-guided therapy, an image is the **frame of reference in which a physical intervention is aimed**. The question shifts from "what does this show?" to "where, exactly, is the target relative to my beam, knife, or probe — right now?" Every technology below exists to answer that question with enough accuracy that a high dose can be deposited in the tumor and withheld from everything around it.
-
-### IMRT and VMAT: sculpting the dose to the target's shape
-
-**Intensity-modulated radiation therapy (IMRT)** is the dominant modern external-beam technique. Radiation is delivered through multiple beams whose intensity *varies across the beam profile*, shaped by a **multi-leaf collimator (MLC)** — an array of metal leaves that move independently to block parts of the beam (cba-36). Combining many beam directions, each with its own intensity pattern, produces a dose distribution that conforms tightly to the target — and, crucially, can wrap *concavely* around a critical structure like the spinal cord, which older techniques could not do (cba-36).
-
-This conformality is what makes imaging-defined targets actionable. In head and neck cancer, IMRT spares the parotid glands, sharply reducing dry mouth; in prostate cancer it permits dose escalation to 78–80 Gy while keeping rectal and bladder dose low (cba-36). The plan is generated by **inverse planning**: the planner specifies the desired dose distribution and software optimizes the beam configuration to achieve it (cba-36). **Volumetric modulated arc therapy (VMAT)** refines IMRT by varying the beam continuously as the gantry rotates, delivering in 2–3 minutes rather than 5–15 (cba-36). None of this means anything without an accurate target outline — and the outline comes from imaging.
-
-### IGRT: verifying position before every fraction
-
-**Image-guided radiation therapy (IGRT)** verifies tumor position *before each treatment fraction*, addressing two geometric uncertainties: setup error (the patient is positioned slightly differently each day) and internal motion (organs and tumors shift) (cba-36). The workhorse is **cone-beam CT (CBCT)** — a CT acquired in treatment position immediately before delivery, giving three-dimensional verification (cba-36). Faster but cruder is a pair of **orthogonal kV X-rays** showing only bony anatomy, not soft tissue (cba-36).
-
-The most significant advance is **MR-guided radiation therapy (MRgRT)**. MR-Linac systems (ViewRay MRIdian, Elekta Unity) combine an MRI scanner with a linear accelerator, providing excellent soft-tissue visualization with no ionizing imaging dose, and allowing the treatment to be **gated** to anatomy or adapted to the day's anatomy in real time (cba-36).
-
-The payoff of all guidance is one number: the **margin**. Because the target's daily position is now known rather than assumed, the safety margin added around the tumor can shrink — and a smaller margin means less normal tissue in the high-dose region, hence lower toxicity and the freedom to escalate dose (cba-36). Margin reduction is the quantitative heart of image guidance.
-
-<!-- → [CHART: Margin reduction with image guidance — a target volume with a large "no-guidance" margin (more normal tissue irradiated) vs a tight "CBCT/MR-guided" margin (less normal tissue), annotated with the toxicity/dose-escalation consequence] -->
-
-### SBRT and the ablative regime: precision as a precondition for high dose
-
-**Stereotactic body radiation therapy (SBRT)** delivers very high doses in 1–5 fractions — each fraction typically 7–25 Gy — to small targets, with sub-millimeter accuracy, steep dose gradients, and multiple beam angles (cba-36). For inoperable stage I lung cancer, 50–60 Gy in 3–5 fractions achieves roughly 90% local control at three years (cba-36). For prostate cancer, five fractions of 7.25 Gy replace 30–40 conventional visits (cba-36). The **SABR-COMET** trial showed a survival benefit from SBRT applied to 1–5 metastatic lesions in selected patients — extending the "ablative therapy for oligometastatic disease" concept (cba-36).
-
-The logic is the chapter's thesis in concentrated form: the biological dose is so high that any geographic miss is catastrophic, so SBRT *requires* precise immobilization, image guidance, and motion management as preconditions, not accessories (cba-36). Precision is what *permits* the ablative dose; without the imaging infrastructure, the dose would be unsafe.
-
-### Protons: precision in depth, with its own uncertainty
-
-**Proton therapy** uses charged particles whose defining property is the **Bragg peak**: protons deposit energy gradually, then a sharp peak of dose at the end of their range, then essentially zero beyond (cba-36). This eliminates exit dose distal to the target, reducing integral dose to normal tissue — especially valuable in pediatric cancers (decades of life in which a radiation-induced second cancer could appear) and tumors abutting the optic nerves or brainstem (cba-36). But the precision has a catch: **range uncertainty**. The exact stopping point depends on tissue heterogeneity and motion, so the very sharpness that spares distal tissue makes the plan sensitive to where, precisely, the proton stops — another place where imaging accuracy is load-bearing (cba-36). Protons cost hundreds of millions to build and have more limited comparative-effectiveness data than photons; for prostate and most lung cancers, IMRT/SBRT may match outcomes at lower cost (cba-36).
-
-### Adaptive radiotherapy: re-imaging because the target changes
-
-Anatomy changes during a treatment course — tumors shrink, patients lose weight, bladder and bowel filling vary (cba-36). **Adaptive radiotherapy** re-images and re-plans to track those changes: *offline* (periodic replanning from interval CTs), *online* (plan optimized to the day's anatomy immediately before each fraction, enabled by MR-Linac), and *real-time* (adjustment during the fraction) (cba-36). Adaptive RT is the logical endpoint of imaging-as-infrastructure: the plan is no longer a fixed object but a living thing continuously re-anchored to the patient by imaging.
-
-### Beyond radiation: surgery and ablation
-
-The same principle governs **fluorescence-guided surgery**, where a tumor-accumulating fluorescent agent (5-ALA-derived protoporphyrin IX in glioblastoma; ICG in several cancers) lets the surgeon see tumor extent in real time and resect more completely (cba-76, cross-reference). It governs **image-guided ablation**, where CT or ultrasound positions a probe to deliver thermal energy to a tumor. In every case imaging is the guidance layer that converts an intention to treat into an accurate physical act.
-
-## Worked Example
-
-**Situation.** A radiation oncologist must plan curative-intent treatment for a head and neck cancer wrapping partly around the spinal cord, with bulky disease near both parotid glands. The goal: tumoricidal dose to the target, cord dose under tolerance, and as much parotid spared as possible.
-
-**Reasoning, including a dead end.** The dead end is to treat with a simple opposed-beam arrangement and a generous margin "to be safe." A large margin and unshaped beams would put the spinal cord and both parotids in the high-dose region — risking cord injury and near-certain permanent dry mouth — because the dose distribution cannot bend around the cord and the margin floods normal tissue (cba-36). "To be safe" is, here, exactly unsafe.
-
-The resolution rebuilds the plan around imaging at three stages. First, *planning imaging*: a planning CT, fused with MRI for soft-tissue target definition and with FDG-PET to capture metabolically active nodal disease, defines the target volumes and the organs at risk (cba-36; cross-reference ch4). Second, *dose sculpting*: IMRT/VMAT inverse planning produces a concave dose distribution that wraps the target while carving a low-dose notch around the cord and pulling dose off the parotids — geometrically impossible without intensity modulation (cba-36). Third, *per-fraction guidance*: daily CBCT verifies position before each of ~30 fractions, so the margin can be tight; with a 3 mm rather than a 1 cm margin, far less cord and parotid sit in the high-dose region (cba-36). The numbers that carry the plan are the dose constraints (cord below tolerance, parotid mean dose minimized) made *achievable* by the margin reduction that imaging permits.
-
-**The lesson.** Image guidance is not a refinement bolted onto radiation; it is the reason a high, concave, organ-sparing dose distribution can be delivered at all. The margin is the currency, and imaging is what buys a smaller one.
-
-**The limit.** A perfectly guided, perfectly conformal plan still does not guarantee cure. Local control is not the same as survival; micrometastatic disease outside the imaged field is invisible to the planning images and untouched by the beam. And the post-treatment scan that shows a shrunken or PET-negative target is itself a proxy — radiation changes tissue, inflammation can mimic residual disease, and image response is not the same as eradication (cba-36; notes, ch11). Imaging aims the therapy beautifully; it does not, by itself, prove the therapy worked.
-
-## Common Misconceptions
-
-**"A bigger margin around the tumor is always the safe choice."** Plausible because margin seems to buy insurance against missing — but it fails because a larger margin floods more normal tissue with high dose, raising toxicity, and in the SBRT/ablative regime can make treatment unsafe. The opening case shows the opposite: precision, not generous margins, is what permits a curative dose. Imaging shrinks the margin and *that* is the safety.
-
-**"Image guidance just means taking a scan before treatment."** Plausible because guidance does involve a scan — but it fails because guidance is a position-verification and adaptation system: CBCT or MR imaging in treatment position, gating to motion, and re-planning to changed anatomy. The scan is an input to an aiming process, not an end in itself.
-
-**"Proton therapy is strictly better because it is more precise."** Plausible because the Bragg peak really does spare distal tissue — but it fails because range uncertainty makes that precision sensitive to tissue and motion, comparative data are limited, and for many cancers photon IMRT/SBRT matches outcomes at far lower cost. Precision in one dimension is not free dominance.
-
-**"A post-treatment scan showing the tumor gone means the patient is cured."** Plausible because image response feels like the goal — but it fails because image response is a proxy: it cannot see micrometastatic disease, inflammation can mimic residual tumor, and local control is not survival. The same proxy-versus-truth problem that ran through the imaging chapters runs through response assessment.
-
-## Exercises
-
-1. **(Recall/Understand)** Define IMRT, IGRT, CBCT, SBRT, and the Bragg peak in one sentence each, and state for each whether it primarily concerns *defining* the target, *verifying* its position, or *delivering* dose.
-
-2. **(Apply)** A lung SBRT target moves 1.5 cm with respiration. Explain, in terms of margin and dose gradient, why a single static planning CT is inadequate, and name two image-guidance techniques (from the chapter) that address the motion.
-
-3. **(Apply+ / Produce)** **Produce** an image-guidance plan for a prostate SBRT course of five fractions. Specify: which imaging defines the target and organs at risk; which modality verifies position before each fraction and why soft-tissue (not bony) verification matters here; how image guidance lets you reduce the margin; and one consequence for rectal/bladder dose. Justify each choice against the geometry of the prostate and its neighbors (cba-36).
-
-4. **(Analyze)** An MR-Linac allows online adaptation. Explain what *online adaptation* adds beyond CBCT verification, and give one clinical situation (from the chapter's list of why anatomy changes) where it would change the plan mid-course.
-
-5. **(Evaluate)** A center markets proton therapy for early prostate cancer as "the most precise, therefore best, option." Using range uncertainty, comparative-effectiveness evidence, and cost, evaluate whether precision alone justifies the choice over IMRT/SBRT for this indication (cba-36).
-
-## What Would Change My Mind
-
-The central claim is that in image-guided therapy, imaging functions as intervention infrastructure — a coordinate system whose accuracy sets how high and how conformal a dose can safely be delivered — and that margin reduction is the mechanism translating image guidance into clinical benefit. A specific finding would revise it: a large randomized trial showing that intensive image guidance (daily CBCT or MR-Linac adaptation) produced *no* improvement in local control or toxicity over minimal guidance with conventional margins, across a tumor type where motion and setup error are substantial, would undercut the claim that the imaging layer is doing the work the chapter credits it with. The evidence so far runs the other way — IGRT has reduced required margins and enabled dose escalation and ablative regimens like SBRT with high local control (cba-36) — but much of that evidence is from single-arm and registry data, and the marginal benefit of the *most* intensive guidance over moderate guidance is not always established by randomized comparison [verify]. If adaptive and MR-guided RT failed to beat simpler CBCT-guided RT on hard endpoints, the chapter's emphasis on ever-finer guidance would need tempering.
-
-## Still Puzzling
-
-- Image guidance reduces *geometric* miss, but the dominant failure of curative radiation is often micrometastatic spread outside the imaged field. How much of the survival benefit attributed to better targeting is really benefit, versus better local control of a disease whose outcome is set elsewhere?
-
-- Every additional imaging step — daily CBCT, 4D-CT — adds its own ionizing dose and its own uncertainty. Where is the point at which more guidance stops improving the therapeutic ratio and starts merely adding dose and complexity?
-
-- Post-treatment response imaging cannot distinguish sterilized residual tissue from viable tumor with certainty. Is there any imaging signal that reliably separates "treated and dead" from "treated and dormant," or is that distinction fundamentally beyond imaging?
-
-- MR-Linac adapts the plan to today's anatomy, but the biological target — where the viable tumor cells actually are — is not the same as the anatomical or even the metabolic target. How well does the thing we can image and aim at correspond to the thing we need to kill?
-
-## References
-
-- Source chapter: "Modern Radiation Therapy: Technology, Toxicity, and Integration" (cba-36), Humanitarians AI cancer series — IMRT/VMAT and the MLC, inverse planning, IGRT and CBCT, MR-Linac (MRIdian, Unity), SBRT (lung, prostate, oligometastatic; SABR-COMET), proton therapy and the Bragg peak, brachytherapy, adaptive radiotherapy.
-- Cross-reference: "In Vivo Imaging, Photodynamic Therapy, and Specialized Techniques" (cba-76) — 5-ALA and ICG fluorescence-guided surgery.
-- NCI, "Types of Cancer Treatment" (treatment modalities by type and stage). https://www.cancer.gov/about-cancer/treatment/types
-- NCI, "Cancer Imaging Basics" (treatment planning and response assessment). https://dctd.cancer.gov/research/research-areas/imaging/basics
-- Comparative-effectiveness evidence for intensive vs moderate image guidance, and image response vs survival as endpoints [verify and update against current radiation-oncology guidelines before publication].
+These are not diagnostic images. They are intervention infrastructure — the coordinate system that makes the therapy geometrically possible. That shift in the role of imaging, from measurement to targeting frame, is the subject of this chapter.
 
 ---
 
-## Prompts
+### The margin: what image guidance is actually buying
 
-<!-- This section is populated automatically by the Cowork enrichment
-     pass. Each D3 figure generated in this chapter gets an entry here:
-     the figure number, a short title, and a ready-to-paste prompt
-     that produces a close approximation of that figure.
+Every radiation treatment plan draws a target volume around the visible tumor, then adds a **margin** — a rim of additional tissue around the tumor, irradiated because the tumor's true position on any given treatment day is uncertain. The margin absorbs that uncertainty. If the tumor might be 5 millimeters to the left of where it appeared on the planning scan, the plan includes an extra 5 millimeters of tissue on the left.
 
-     Prerequisites: paste CLAUDE.md and DESIGN.md from the brutalist/
-     folder before each prompt, or load them into your Claude project
-     context once and reference them by name.
--->
+A larger margin means less chance of missing the tumor. It also means more normal tissue inside the high-dose region. The spinal cord, the salivary glands, the rectum, the contralateral lung — all of these sit some distance from the tumor, and all of them receive more dose as the margin around the tumor grows. Large margins are not conservative; they are a tradeoff between geometric security and normal-tissue damage. A margin that protects against a 1-centimeter setup error does so by irradiating 1 centimeter of healthy tissue in every direction. The "safe" large margin is safe for the tumor and dangerous for the organs around it.
 
-*No figures have been generated for this chapter yet.*
-*Run the Cowork enrichment pass to populate this section.*
+Image guidance changes this arithmetic. If the tumor's position on each treatment day is verified by imaging in treatment position — not assumed from the planning scan — the uncertainty that the margin was absorbing is reduced. The margin can shrink. Smaller margin means less normal tissue in the high-dose field. Less normal tissue in the high-dose field means lower toxicity. And lower toxicity means the dose to the tumor can be escalated without the treatment becoming intolerable.
+
+This is the mechanism by which image guidance translates into clinical benefit: not by making the image prettier, but by reducing the margin, which directly reduces normal-tissue dose, which creates room to escalate tumor dose. Margin reduction is the quantitative heart of image guidance.
+
+For SBRT, the logic is not just about toxicity management — it is about whether the dose is safe to deliver at all. SBRT doses (7 to 25 Gy per fraction) are ablative. They are designed to sterilize the tumor completely in a small number of fractions. At that dose level, the steep dose gradient that falls off within millimeters means that any geometric miss delivers a high dose to a millimeter of normal tissue rather than a millimeter of tumor. The precision that makes SBRT effective is what makes accuracy non-negotiable. You cannot deliver ablative SBRT without image guidance. The dose level itself demands the targeting infrastructure.
+
+---
+
+### How IMRT sculpts the dose to the target's shape
+
+Before image guidance enters, the dose must be shaped. The history of radiation therapy is largely the history of getting better at concentrating dose where the tumor is and withdrawing it from where it is not.
+
+**Intensity-modulated radiation therapy** achieves this by varying the intensity of the beam across its profile. The instrument is the **multi-leaf collimator** — a bank of metal leaves, each a few millimeters wide, that can be positioned independently across the face of the beam. Each leaf blocks some of the beam. By setting different configurations at different angular positions of the treatment machine, and by varying the configuration continuously as the machine rotates in the newer volumetric modulated arc therapy, the planning system assembles a dose distribution inside the patient from the superposition of hundreds of modulated beams.
+
+The crucial capability this adds is concave dose distributions. An older rectangular field arrangement cannot avoid overdosing a structure that sits inside the concavity of a tumor — if the spinal cord is behind and between two tumor volumes, rectangular fields must either underdose the tumor or overdose the cord. IMRT can produce a dose cloud that wraps around the cord, carving a low-dose notch precisely where the critical structure sits. The dose distribution can bend.
+
+This concavity is what allows head and neck cancer treatment to spare the parotid glands: the plan wraps the high dose around the tumor volumes on both sides of the neck while pulling dose off the midline structures and the glands. Before IMRT, xerostomia — permanent dry mouth from parotid damage — was near-universal in head and neck radiation. It was not an acceptable toxicity that patients learned to live with; it was a severe, permanent impairment that substantially degraded quality of life. IMRT made it substantially less common by making parotid sparing geometrically achievable.
+
+The plan is generated by **inverse planning**: the dosimetrist specifies what the dose distribution should be — tumoricidal dose in the target, dose constraints for the spinal cord, parotids, bladder, rectum — and optimization software finds the beam configuration that best achieves those specifications. The human designs the desired outcome and the algorithm designs the delivery. This is only possible because of the imaging that defined the targets and organs in the first place: the dose constraints make no sense if the target volumes are wrong.
+
+---
+
+### Verifying position before every fraction: IGRT
+
+The plan may be perfect. The patient on treatment day two may not be positioned identically to treatment day one. The bladder may be more or less full. The tumor may have shifted relative to bony anatomy. The plan was optimized for a specific geometry, and any deviation from that geometry is an error.
+
+**Image-guided radiation therapy** addresses this by imaging the patient in treatment position, in the treatment room, before each fraction. The most common tool is **cone-beam CT** — a low-dose CT scan taken by a detector mounted on the treatment machine itself, acquired while the patient lies on the treatment couch, immediately before the beam fires. The cone-beam CT is registered to the planning CT, and the difference in position is used to reposition the patient (by moving the treatment couch) or to apply a correction to the beam angles.
+
+For bony structures — spine, pelvis — a simpler verification using two orthogonal kV X-ray images provides rapid confirmation of position without full three-dimensional CT. For soft-tissue targets, where the tumor may shift relative to bone (the prostate moves with bladder filling; the pancreatic tumor shifts with organ motion that bony landmarks don't capture), cone-beam CT is needed because it visualizes the tissue, not just the skeleton. **Fiducial markers** — small gold seeds implanted in or near the tumor before treatment — provide visible reference points for soft-tissue targets in settings where the tumor itself is hard to resolve on cone-beam CT.
+
+The most significant advance in per-fraction guidance is the **MR-Linac**: a linear accelerator combined with an MRI scanner in the same treatment room. The patient is imaged by MRI while lying in treatment position, the current anatomy is compared to the planned anatomy, and the plan can be adapted to what is actually seen that day before delivery begins. MRI provides soft-tissue visualization that CT cannot match — it can image the prostate, the cervix, and abdominal tumors with contrast that cone-beam CT's limited imaging quality cannot achieve. The MR-Linac also enables real-time gating: the beam fires only when the anatomy matches the planned position, and stops automatically if the target moves out of range. This is the technical implementation of what the lung SBRT case required: the beam knows where the tumor is in real time and responds.
+
+---
+
+### 4D imaging and the moving target
+
+For tumors that move with respiration — lung tumors, liver tumors, pancreatic tumors — a single CT taken at one point in the breathing cycle does not represent the target's position through the treatment. **Four-dimensional CT** acquires images at multiple phases of the breathing cycle simultaneously, using a respiratory monitor to sort the images by breathing phase. The result is a stack of CT volumes representing the tumor's position at each phase: end-inspiration, mid-inspiration, end-expiration, and everything in between. This is not just a better snapshot; it is a map of where the tumor is at every moment of the cycle.
+
+From the 4D-CT, the planner can define an **internal target volume** that encompasses the tumor's motion across all phases — a larger volume that ensures the target is always inside the field regardless of breathing phase. Or the planner can choose **respiratory gating**: treat only during a specific phase (usually end-expiration, when the tumor position is most reproducible) and gate the beam so it fires only during that phase. The gated approach uses a smaller volume because the tumor's position range during the gating window is narrow, reducing the margin needed, reducing the normal tissue included, and allowing the ablative dose to be concentrated.
+
+The motion management challenge for lung SBRT is also the reason surface-guided radiation therapy is valuable: cameras tracking reflective markers on the patient's chest surface provide continuous motion data that can correlate with internal tumor position and trigger the beam without requiring the patient to be imaged with X-rays every breath cycle.
+
+---
+
+### Adaptive radiotherapy: re-planning because the target changes
+
+The plan is made before treatment begins. Treatment can last three to seven weeks. In that interval, anatomy changes. A head and neck tumor shrinks — the target volume that justified the original margins is no longer accurate. A patient loses weight — the patient's surface is different from the planning CT. The bladder that was modestly full on planning day is distended on treatment day fifteen.
+
+**Adaptive radiotherapy** responds to these changes by re-imaging and re-planning during the course of treatment. The simplest version is *offline adaptation*: take a new CT partway through the course, assess whether the plan is still accurate, and replan if needed. More intensive is *online adaptation*: on the MR-Linac, take an MRI immediately before the fraction, adapt the plan to that day's specific anatomy, verify the adapted plan against dose constraints, and then deliver. The adaptation takes minutes. The plan for that fraction is the plan optimized to the anatomy that exists right now, not the anatomy that existed when planning was done.
+
+Adaptive radiotherapy is the logical endpoint of the imaging-as-infrastructure principle: the plan is not a fixed artifact but a living document continuously re-anchored to the patient's current anatomy by real-time imaging. The tumor gets the planned dose; the organs at risk receive what they would receive if the plan were always drawn to the current geometry, not the baseline geometry.
+
+---
+
+### Proton therapy: precision in depth, with a physical constraint
+
+Protons stop. This is the fact that distinguishes them from photons, which deposit dose along their entire path through tissue and continue beyond the target. A proton of a specific energy travels through tissue, depositing low dose along the path, then releasing a sharp burst — the **Bragg peak** — at the end of its range. Beyond the peak: essentially nothing. No exit dose.
+
+This physics is genuinely different from photon physics and genuinely valuable in specific settings. A child with a posterior fossa brain tumor who receives proton therapy instead of photons accumulates less integral dose — less total energy deposited across the whole body — and therefore has a lower probability of radiation-induced secondary malignancy over the decades ahead. That probability difference compounds over fifty years of life, and it is real. For tumors sitting immediately adjacent to the optic chiasm or the brainstem, protons can treat the tumor while avoiding the dose that photons would deposit in those critical structures on the way out.
+
+For prostate cancer and many lung cancers, the comparison with modern photon techniques — IMRT, SBRT — is less favorable. Modern photon planning already achieves low doses to the rectum and bladder. The margin for proton improvement in acute and late toxicity in these cancers has been narrow in comparative clinical data, and proton centers cost several hundred million dollars to build. The allocation question — whether the incremental clinical benefit justifies the cost — is unresolved for most common adult cancers treated in this era of conformal photon delivery.
+
+The proton's precision also creates a specific vulnerability: **range uncertainty**. The exact stopping point of a proton beam depends on the density and composition of all the tissue it traverses. If the tissue is heterogeneous — air pockets, bone, varying soft tissue — the proton's range is predicted imprecisely. A proton plan that relies on precision in depth is sensitive to errors in where the proton stops, which means it is sensitive to tissue motion, to changes in patient anatomy between planning and treatment, and to uncertainties in the CT-based range calculation. The Bragg peak's advantage — stopping exactly at the target — becomes a liability if the stopping point is poorly predicted. Image guidance for proton therapy must address depth accuracy as well as lateral positioning.
+
+<!-- → [DIAGRAM: dose-depth profiles. Two curves on shared axes, x-axis = depth in tissue, y-axis = relative dose deposited. Photon curve: moderate surface dose, gradual exponential decay, tail extending past the target (exit dose labeled). Proton curve: low dose along path, sharp Bragg peak at end of range, near-zero beyond. Target region shaded between two vertical depth lines. Annotate: "exit dose" on photon tail; "Bragg peak" at proton maximum; "range uncertainty" as a bracket around the Bragg peak showing where the proton might actually stop. Caption: proton precision requires accurate prediction of stopping depth, which is the clinical vulnerability of the technique.] -->
+
+---
+
+### Beyond radiation: fluorescence-guided surgery and image-guided ablation
+
+The infrastructure principle extends beyond radiation.
+
+A surgeon resecting a brain tumor aims to remove all the tumor while preserving normal brain. The problem is that at surgical margins — the interface between tumor and normal tissue — the distinction is not always visible to the naked eye. **5-aminolevulinic acid** is a precursor that the body converts to protoporphyrin IX, a compound that accumulates preferentially in glioma cells and fluoresces pink-red under a specific wavelength of blue light. The surgeon switches to the fluorescent imaging mode and sees where the tumor is still present. The fluorescence is not a diagnosis (it requires pathologic confirmation); it is a real-time targeting signal during the operation, allowing more complete resection at the margins where the critical question — is this tumor or normal brain? — is hardest to answer by appearance alone.
+
+**Indocyanine green** serves a similar role in other surgical settings: injected and taken up by the hepatobiliary system, it helps surgeons identify anatomical structures and vascular territories during liver surgery; injected and tracked to sentinel lymph nodes, it guides the lymph node mapping procedure with real-time fluorescence rather than requiring gamma-probe detection of a radiotracer.
+
+**Image-guided ablation** uses CT or ultrasound to position a probe inside or immediately adjacent to a tumor, then delivers thermal energy that heats the tumor to lethal temperatures. **Radiofrequency ablation** and **microwave ablation** are the dominant modalities for liver tumors, lung tumors, and renal cell carcinoma. **Cryoablation** freezes tumors rather than heating them. The imaging is not the treatment; the needle and the energy are. But without imaging to navigate the needle to the target and confirm its position before energy delivery, the ablation is blind and either misses the target or injures adjacent structures.
+
+In each case — fluorescence-guided surgery, image-guided ablation — the principle is the same one the chapter opened with: imaging is the coordinate system that lets a physical intervention hit a target it cannot see directly.
+
+---
+
+### What post-treatment imaging cannot tell you
+
+After treatment ends, imaging assesses what happened. A follow-up CT shows the lung tumor smaller, or absent, or unchanged. A PET scan shows the previously FDG-avid lesion no longer taking up tracer. These findings are reported as evidence of treatment response, and they are meaningful.
+
+They are also proxies. A tumor that appears smaller on CT may have undergone central necrosis with a preserved fibrous shell — smaller radiographic appearance, incompletely sterilized cells at the viable periphery. Radiation induces local inflammation; inflammatory tissue can appear hypermetabolic on PET, mimicking residual disease ("pseudoprogression") or producing false positives. A post-treatment scar cannot be distinguished radiographically from a small residual tumor at the lower limit of imaging resolution.
+
+The imaging response is not the cure. Local control — the tumor does not regrow at the treated site — is itself a proxy for survival if micrometastatic disease outside the treated field is present. A patient whose primary tumor is sterilized by perfectly aimed SBRT but who has occult circulating tumor cells seeding the liver is not cured by the local control. The imaging that aimed the therapy beautifully cannot see the cells it did not treat.
+
+This returns to the consistent theme of the imaging chapters: every signal is a measurement of something, and that something is a proxy for what clinicians and patients care about. Imaging guides the therapy to the visible target with remarkable precision. It cannot address the disease beyond the visible target, and it cannot, after the fact, prove that the disease at the visible target is completely gone.
+
+---
+
+## Exercises
+
+**Warm-up**
+
+1. *(Recall — difficulty: low)* Define these five terms in one sentence each, and for each state whether it primarily concerns defining the target, verifying its position, or delivering dose: IMRT, IGRT, CBCT, SBRT, and the Bragg peak. *What this tests: the vocabulary of image-guided therapy before it is applied to clinical scenarios.*
+
+2. *(Recall — difficulty: low)* Explain the relationship between image guidance, margin size, and normal-tissue dose in radiation therapy. Specifically: what uncertainty does the margin absorb, how does per-fraction imaging reduce that uncertainty, and what happens to normal-tissue dose when the margin shrinks? *What this tests: the margin-reduction mechanism before it is applied to specific cases.*
+
+3. *(Recall — difficulty: low)* What is a 4D-CT and why is it used instead of a standard CT for lung SBRT planning? State two options for managing respiratory motion that 4D-CT data enables, and explain one tradeoff between them. *What this tests: the 4D-CT concept and the internal-target-volume versus gating choice.*
+
+**Application**
+
+4. *(Apply — difficulty: medium)* A lung SBRT target moves 1.5 centimeters with respiration. Explain mechanistically why a single static planning CT is inadequate for this case. Name two specific image-guidance techniques from the chapter that address the motion, state what each one measures or controls, and explain why their combination achieves better targeting than either alone. *What this tests: the moving-target problem applied to SBRT with explicit mechanism reasoning.*
+
+5. *(Apply — difficulty: medium)* A head and neck cancer treatment plan must achieve tumoricidal dose to bilateral neck targets while keeping the spinal cord below its tolerance dose and sparing both parotid glands. Explain why a simple opposed-lateral field arrangement fails each of these goals, and describe how IMRT inverse planning addresses each failure — specifically using the concept of concave dose distributions. *What this tests: the geometric case for IMRT over simple field arrangements, with organ-specific reasoning.*
+
+6. *(Apply — difficulty: medium)* A proton therapy center argues that their Bragg peak technology will produce fewer late rectal and urinary complications in intermediate-risk prostate cancer compared with IMRT. Evaluate this argument using: (a) what the Bragg peak physically achieves in terms of dose distribution; (b) what modern IMRT already achieves in terms of rectal and bladder dose constraints; (c) range uncertainty as a proton-specific vulnerability; and (d) the current state of comparative clinical evidence. Conclude with a calibrated statement of what clinical evidence would change your assessment. *What this tests: the proton-versus-photon comparison applied to a specific cancer type with explicit evidence reasoning.*
+
+**Synthesis**
+
+7. *(Synthesize — difficulty: high)* Construct a complete image-guided treatment plan for a prostate SBRT course of five fractions. For each element of the plan, state: (a) which imaging modality is used; (b) what it specifically measures or verifies; (c) why that measurement is necessary at that stage; and (d) one failure mode if that imaging step is omitted or inaccurate. Cover at minimum: planning target definition, per-fraction position verification, motion management, and post-treatment response assessment. Conclude by explaining what the post-treatment imaging can and cannot establish about whether the patient was cured. *What this tests: end-to-end integration of the imaging infrastructure for a complete SBRT course, with explicit failure-mode analysis.*
+
+8. *(Synthesize — difficulty: high)* Compare the clinical applications of cone-beam CT, MR-Linac, and 4D-CT as image-guidance tools. For each, state: (a) the physical signal it uses; (b) what source of geometric uncertainty it addresses; (c) what clinical situations it is best suited for; and (d) one situation where it is insufficient and a different approach is required. Then construct a general principle for selecting image-guidance technology, based on the relationship between the motion being corrected and the information each modality provides. *What this tests: comparative analysis of three guidance modalities with a generalizable selection principle.*
+
+**Challenge**
+
+9. *(Challenge — difficulty: high)* Adaptive radiotherapy — re-planning to account for anatomic changes during the treatment course — is technologically possible with MR-Linac systems but adds substantial time, cost, and complexity per fraction. Some argue that adaptive RT should become standard of care for all moving targets; others argue that the marginal benefit over well-guided conventional CBCT-based treatment is small for most patients, and that the resources should go to making basic image guidance available to more patients worldwide. Evaluate both positions: (a) what evidence exists that online adaptive RT improves clinical outcomes (local control, toxicity) beyond CBCT-guided treatment without online adaptation; (b) what patient populations and anatomic sites have the strongest biological and geometric rationale for online adaptation; (c) what the opportunity cost is of prioritizing sophisticated adaptive technologies in high-income settings when basic IGRT is not universally available; and (d) propose a framework for allocating image-guidance technology investment that accounts for both clinical benefit and global access. Be explicit about what is established versus what you are inferring from mechanism, and identify the single most important trial whose results would most change the field's approach to adaptive RT. *What this tests: evidence-level reasoning about a live clinical controversy, global health perspective on technology allocation, and the relationship between biological rationale and clinical evidence.*
